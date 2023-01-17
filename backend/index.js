@@ -3,6 +3,7 @@ const cors = require("cors")
 const { connection } = require("./config/db")
 const { fullBodyCheckRouter } = require("./routes/FullBodyCheck.route")
 const { comboDealsRouter } = require("./routes/ComboDeals.route")
+const { trendingRouter } = require("./routes/Trending.route")
 require('dotenv').config()
 
 
@@ -18,6 +19,7 @@ app.get("/",(req,res)=>{
 
 app.use("/fullBodyCheck",fullBodyCheckRouter)
 app.use("/comboDeals",comboDealsRouter)
+app.use("/trending",trendingRouter)
 
 
 app.listen(4001,async()=>{
