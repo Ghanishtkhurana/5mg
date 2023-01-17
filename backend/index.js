@@ -5,6 +5,7 @@ const { fullBodyCheckRouter } = require("./routes/FullBodyCheck.route")
 const { comboDealsRouter } = require("./routes/ComboDeals.route")
 const { trendingRouter } = require("./routes/Trending.route")
 const { cerealRouter } = require("./routes/Cereal.route")
+const { plantRouter } = require("./routes/PlantBases.route")
 require('dotenv').config()
 
 
@@ -22,6 +23,7 @@ app.use("/fullBodyCheck",fullBodyCheckRouter)
 app.use("/comboDeals",comboDealsRouter)
 app.use("/trending",trendingRouter)
 app.use("/cereal",cerealRouter)
+app.use("/plant",plantRouter)
 
 
 app.listen(4001,async()=>{
