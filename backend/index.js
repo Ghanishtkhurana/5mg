@@ -1,6 +1,7 @@
 const express=require("express")
 const cors = require("cors")
 const { connection } = require("./config/db")
+const { fullBodyCheckRouter } = require("./routes/FullBodyCheck.route")
 require('dotenv').config()
 
 
@@ -14,6 +15,7 @@ app.get("/",(req,res)=>{
     res.send("Home Page")
 }) 
 
+app.use("/fullBodyCheck",fullBodyCheckRouter)
 
 
 app.listen(4001,async()=>{
