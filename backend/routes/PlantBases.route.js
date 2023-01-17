@@ -19,7 +19,7 @@ plantRouter.post("/create",async(req,res)=>{
     try{
      const plant= new PlantModel(payload)
      await plant.save()
-     res.send("Created a cereal")
+     res.send("Created a plant based product")
     }catch(err){
      console.log(err)
      res.send({"msg":"Something Went Wrong"})
