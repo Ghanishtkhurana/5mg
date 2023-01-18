@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { Box,Text } from "@chakra-ui/react";
 
 const data=[
     {
@@ -52,13 +53,14 @@ function Sliding(){
 <Slider {...settings}>
 {
         data.map((item)=>(
-            <div key={item.id}>
-            <img style={{width:"1200px"}} src={item.image} alt="offers"/>
-            </div>
+            <Box key={item.id}>
+            <img style={{width:"100%"}} src={item.image} alt="offers"/>
+            </Box>
         ))
     }
 </Slider>
 </div>
+ <Text marginTop="30px" fontSize="xl" fontWeight="bold" color="gray">Tata 5mg: India’s Leading Online Pharmacy & Healthcare Platform</Text>
         </div>
     )
 }
