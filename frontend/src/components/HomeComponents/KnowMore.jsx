@@ -4,7 +4,7 @@ import React from 'react'
 const KnowMore = () => {
   return (
     <div>
-     <Box backgroundColor='#f6f6f6' paddingY='10px'>
+     <Box backgroundColor='#f6f6f6' paddingY='10px' mt="25px">
         <Container maxW="1300px">
        <Image src='https://onemg.gumlet.io/marketing/29087450-0f25-4856-96fc-62f4ea81bbd3.png' alt='Dan Abramov' />
         </Container>
