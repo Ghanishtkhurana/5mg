@@ -3,6 +3,9 @@ import React from 'react'
 import styled from "styled-components"
 import { CovidEss } from '../components/covidess_0381'
 import { Prepare } from '../components/Prepare_0381'
+import { Walllayoutcard } from '../components/walllayout_0381'
+import { Youtube } from '../components/Youtubeview_0381'
+
 
 
 
@@ -32,20 +35,17 @@ As we are staring at a potential rise of coronavirus in India,<br/>
 style={{width :"80%" , marginTop:"35px"}}
 />
 </Box2>
-   </Covidepagewrapper>
+   </Covidepagewrapper  >
 
-<Testwrapper>
-    <div>
-        <h1 style={{color:"#6b7877"}} >COVID-19 RT-PCR test</h1>
-        <h3>Gold standard test to detect active coronavirus <br/> infection</h3>
-        <button style={{color:"white", backgroundColor:"#ff6f61",width:"300px", height:"40px", borderColor:"transparent",borderRadius:"4px"}} >BOOK NOW</button>
-    </div>
 
-    <div>
-<Image src="https://marketing-compaigns.s3.ap-south-1.amazonaws.com/emailer/Corona_landing_page/rtpcr.png" style={ {  height :"200px"}} />
-    </div>
 
-</Testwrapper>
+<Walllayoutcard 
+head1 ="COVID-19 RT-PCR test" 
+head2 ="Gold standard test to detect active coronavirus  infection"
+ btn ="BOOK NOW"
+  imageurl ="https://marketing-compaigns.s3.ap-south-1.amazonaws.com/emailer/Corona_landing_page/rtpcr.png"
+/>
+
 <h1 style={{textAlign:"centre"}} >COVID Essentials: Everything you need</h1>
 
 
@@ -117,6 +117,40 @@ The COVID Home Care Complete package offers 41 <br/>
 
 </HomecareTest>
 <Prepare/>
+
+<Walllayoutcard
+head1="COVID-19 & latest treatment modalities"
+head2 ="To prepare for the imminent threats of this virus, scientists and researchers are constantly developing newer treatment strategies. One such new treatment option includes monoclonal antibodies. Want to know more about these available treatments and how they work against COVID variants, including Delta and Omicron?"
+btn="Read This Article"
+imageurl="https://marketing-compaigns.s3.ap-south-1.amazonaws.com/emailer/Corona_landing_page/hand.png"
+
+/>
+
+<Walllayoutcard
+head1="Has your doctor prescribed COVID treatment based on monoclonal antibodies?"
+head2 ="Medices"
+btn="Find It here"
+imageurl="https://marketing-compaigns.s3.ap-south-1.amazonaws.com/emailer/Corona_landing_page/monoclonal_dweb.png"
+
+/>
+
+<Walllayoutcard
+head1="Think you may have COVID-19?"
+head2 ="Talk to a qualified doctor online for FREE & get expert guidance"
+btn="Call Now"
+imageurl="https://marketing-compaigns.s3.ap-south-1.amazonaws.com/emailer/Corona_landing_page/talk-now.png"
+
+/>
+<h1>Watch these detailed videos to get answers to commonly <br/> asked questions on coronavirus in India:</h1>
+<Youtube/>
+
+<Walllayoutcard
+head1="Think you have fever, cold or cough?"
+head2 ="Talk to our experts online"
+btn="Consult Now"
+imageurl="https://marketing-compaigns.s3.ap-south-1.amazonaws.com/emailer/Corona_landing_page/consult-doc.png"
+
+/>
    </div>
   )
 }
@@ -179,18 +213,7 @@ margin-bottom:400px;
    }
 `
 
-const Testwrapper = styled.div`
-background :#fdf0df;
-height :200px;
-display:grid;
-grid-template-columns :repeat(2,1fr);
-gap:20px 20px;
-width :80%;
-margin:auto ;
-margin-top : 100px;
-border-radius : 6px;
 
-`
 
 
 
