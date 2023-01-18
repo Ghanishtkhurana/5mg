@@ -5,7 +5,7 @@ const Search = () => {
    
   
     return (
-        <Box border="1px solid" p="20px">
+        <Box p="20px">
         <Flex color='white' alignItems="center" justifyContent="space-between">
 
         <Input p="20px"

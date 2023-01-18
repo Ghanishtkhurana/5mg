@@ -7,9 +7,6 @@ import {
   Text,
   Icon,
   Grid,
-  GridItem,
-  Stack,
-  Container,
   SimpleGrid,
   AspectRatio,
   InputGroup,
@@ -17,8 +14,7 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import React from "react";
-import LabImageS, { TxtSlide } from "../components/LabImageS";
-import Navbar from "../components/Navbar";
+import LabImageS from "../components/LabImageS";
 import { RxHome } from "react-icons/rx";
 import { BsPlusCircle } from "react-icons/bs";
 import { FiArrowRight } from "react-icons/fi";

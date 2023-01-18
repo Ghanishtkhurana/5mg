@@ -1,4 +1,4 @@
-import { Box, Image } from '@chakra-ui/react'
+import { Image } from '@chakra-ui/react'
 import React from 'react'
 import styled from "styled-components"
 import { CovidEss } from '../components/covidess_0381'
@@ -28,7 +28,7 @@ As we are staring at a potential rise of coronavirus in India,<br/>
 </Box1>
 
 <Box2>
-<img  src ="https://marketing-compaigns.s3.ap-south-1.amazonaws.com/emailer/Corona_landing_page/img-head.png" 
+<img  src ="https://marketing-compaigns.s3.ap-south-1.amazonaws.com/emailer/Corona_landing_page/img-head.png" alt='' 
 style={{width :"80%" , marginTop:"35px"}}
 />
 </Box2>
@@ -42,7 +42,7 @@ style={{width :"80%" , marginTop:"35px"}}
     </div>
 
     <div>
-<Image src="https://marketing-compaigns.s3.ap-south-1.amazonaws.com/emailer/Corona_landing_page/rtpcr.png" style={ {  height :"200px"}} />
+<Image src="https://marketing-compaigns.s3.ap-south-1.amazonaws.com/emailer/Corona_landing_page/rtpcr.png" alt='' style={ {  height :"200px"}} />
     </div>
 
 </Testwrapper>
