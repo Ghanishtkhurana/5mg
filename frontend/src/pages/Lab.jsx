@@ -146,7 +146,7 @@ const Lab = () => {
         <Box>
           <Flex
             gap={10}
-            mt={10}
+            mt={{base : "",md:"",lg:"10px"}}
             mb={10}
             flexDirection={{ base: "column", md: "column", lg: "row" }}
           >
@@ -173,8 +173,9 @@ const Lab = () => {
               </Center>
               <Center>
                 <Flex>
-                  {One.map((post) => (
+                  {One.map((post,i) => (
                     <Box
+                    key={i}
                       mt={{ base: "5", md: "5px", lg: "25px" }}
                       width={{ base: "70px", md: "80px", lg: "100px" }}
                       borderRight={"2px"}
@@ -240,8 +241,8 @@ const Lab = () => {
               <Grid templateColumns="repeat(2, 1fr)">
                 {/* append  */}
 
-                {Two.map((text) => (
-                  <Flex gap={2} m={2}>
+                {Two.map((text,i) => (
+                  <Flex gap={2} key={i} m={2}>
                     <Icon
                       as={BsPlusCircle}
                       w={{ base: "", md: "", lg: "20px" }}
@@ -275,8 +276,8 @@ const Lab = () => {
               <Grid templateColumns="repeat(2, 1fr)">
                 {/* append  */}
 
-                {Two.map((text) => (
-                  <Flex gap={2} m={2}>
+                {Two.map((text,i) => (
+                  <Flex gap={2} key={i} m={2}>
                     <Icon
                       as={BsPlusCircle}
                       w={{ base: "", md: "", lg: "20px" }}
@@ -328,8 +329,8 @@ const Lab = () => {
           columns={{ base: 2, md: 4, lg: 6 }}
           gap={{ base: 12, md: 12, lg: 0 }}
         >
-          {Four.map((post) => (
-            <Box>
+          {Four.map((post,i) => (
+            <Box key={i}>
               <Center h={"100px"} bgColor="white">
                 <Image
                   src={post.img}
@@ -465,8 +466,8 @@ const Lab = () => {
           Keep your health in check with Tata 1mg: Lab tests just a click away
         </Text>
         {/* body head  */}
-        {Five.map((post) => (
-          <Box mt={4}>
+        {Five.map((post,i) => (
+          <Box mt={4} key={i}>
             {/* heading  */}
             <Text
               m={1}
