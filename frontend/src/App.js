@@ -7,9 +7,13 @@ import { ChakraProvider } from "@chakra-ui/react";
 function App() {
   return (
     <div className="App">
+      <ChakraProvider>
       <Navbar />
+      </ChakraProvider>
       <AllRoutes />
+      <ChakraProvider>
       <Footer />
+      </ChakraProvider>
     </div>
   );
 }
