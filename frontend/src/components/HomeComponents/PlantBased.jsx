@@ -14,7 +14,7 @@ function SampleNextArrow(props) {
     <div
       className={className}
       style={{ ...style,display: "block", background: "grey",marginRight:"25px",borderRadius:"50px",
-      paddingTop:"12px",width:"40px",height:"30px"}}
+      paddingTop:"12px",width:"40px",height:"40px",marginTop:"-20px"}}
       onClick={onClick}
     />
   );
@@ -26,7 +26,7 @@ function SamplePrevArrow(props) {
     <div
       className={className}
       style={{ ...style, display: "block", background: "grey",marginLeft:"25px",borderRadius:"50px",
-      paddingTop:"12px",width:"40px",height:"30px"}}
+      paddingTop:"12px",width:"40px",height:"40px",marginTop:"-30px"}}
       onClick={onClick}
     />
   );
@@ -64,8 +64,8 @@ const PlantBased = () => {
   return (
     <div>
     <div style={{display:"flex",justifyContent:"space-between"}}>
-    <h1>Plant based supplements</h1>
-    <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",
+    <h1 style={{margin:"15px"}}>Plant based supplements</h1>
+    <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",margin:"15px",
     border:"0px"
     }}>See All</button>
     </div>
@@ -74,13 +74,13 @@ const PlantBased = () => {
   {
     data.map((item)=>(
     <Box key={item.id} box-shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px">
-    <Box  boxSize='120px' ml="35px" mt="5px">
+    <Box  boxSize='120px' ml="45px" mt="5px">
 <Image src={item.image} alt='Dan Abramov' />
 </Box>
-<Text w="120px" ml="12px" color="black">{item.title}</Text>
+<Text w="120px" ml="20px" color="black" fontSize={12}>{item.title}</Text>
 <Text w="120px" ml="12px" color="black" fontSize={10}>{item.offers}</Text>
-<Text color="grey" ml="-25px">MRP</Text>
-<Text color="black" ml="-25px">₹{item.price}</Text>
+<Text color="grey" ml="-25px" fontSize={12}>MRP</Text>
+<Text color="black" ml="-25px" fontSize={12}>₹{item.price}</Text>
     </Box>
     ))
   }

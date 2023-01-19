@@ -15,7 +15,7 @@ function SampleNextArrow(props) {
     <div
       className={className}
       style={{ ...style,display: "block", background: "grey",marginRight:"25px",borderRadius:"50px",
-      paddingTop:"12px",width:"40px",height:"30px"}}
+      paddingTop:"12px",width:"40px",height:"40px",marginTop:"20px"}}
       onClick={onClick}
     />
   );
@@ -27,7 +27,7 @@ function SamplePrevArrow(props) {
     <div
       className={className}
       style={{ ...style, display: "block", background: "grey",marginLeft:"25px",borderRadius:"50px",
-      paddingTop:"12px",width:"40px",height:"30px"}}
+      paddingTop:"12px",width:"40px",height:"40px"}}
       onClick={onClick}
     />
   );
@@ -64,9 +64,9 @@ const FullbodyCheck = () => {
   return (
     <div>
      <div style={{display:"flex",justifyContent:"space-between"}}>
-    <h1>Full body health checkups</h1>
+    <h1 style={{margin:"15px"}}>Full body health checkups</h1>
     <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",
-    border:"0px"
+    border:"0px",margin:"15px"
     }}>See All</button>
     </div>
     <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
@@ -74,17 +74,17 @@ const FullbodyCheck = () => {
   {
     data.map((item)=>(
     <Box key={item.id}>
-    <Text w="120px" ml="12px" color="black" fontSize={15}>{item.title}</Text>
+    <Text w="120px" ml="12px" color="black" fontSize={12}>{item.title}</Text>
 <Text w="120px" ml="12px" color="black" fontSize={10}>{item.no_of_tests}</Text>
     <Box  boxSize='120px' ml="35px" mt="5px">
     <Flex ml="-5px">
     <Image w="60px" src={item.image} alt='Dan Abramov' />
-     <p style={{color:"white",background:"green",fontSize:"13px",padding:"2px"}}>{item.rating}✰</p> 
+     <p style={{color:"white",background:"green",fontSize:"10px",padding:"2px",height:"20px",marginTop:"15px"}}>{item.rating}✰</p> 
 <Text fontSize={12} ml="2px" mt="15px">ISO</Text>
     </Flex>
 </Box>
-<Text color="grey" ml="-25px" mt="-50px">MRP</Text>
-<Text color="black" ml="-25px">₹{item.price}</Text>
+<Text color="grey" ml="-25px" mt="-55px" fontSize={12}>MRP</Text>
+<Text color="black" ml="-25px" fontSize={12} mb={10}>₹{item.price}</Text>
 
     </Box>
     ))
