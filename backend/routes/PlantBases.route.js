@@ -13,6 +13,25 @@ plantRouter.get("/",async(req,res)=>{
     }
  })
  
+ plantRouter.get("/low",async(req,res)=>{
+   try{
+      const cerealss= await PlantModel.find({price: {$lte : 550} })
+      res.send(cerealss)
+   }catch(err){
+      console.log(err)
+      res.send("Something Went Wrong")
+   }
+})
+ 
+plantRouter.get("/high",async(req,res)=>{
+   try{
+      const cerealss= await PlantModel.find({price:{$gte:550}})
+      res.send(cerealss)
+   }catch(err){
+      console.log(err)
+      res.send("Something Went Wrong")
+   }
+})
  
 plantRouter.post("/create",async(req,res)=>{
     const payload=req.body

@@ -4,6 +4,21 @@ const { HerbModel } = require("../Models/Herbs.model")
 
 const HerbsRoute = express.Router()
 
+
+
+
+HerbsRoute.get("/allherbs",async(req,res)=>{
+try{
+const product = await HerbModel.find()
+res.send(product)
+}catch(err){
+console.log(err)
+console.log({"err":"Err while getting herbs data"})
+}
+})
+
+
+
 HerbsRoute.post("/addherbs",async(req,res)=>{
     const payload = req.body
     

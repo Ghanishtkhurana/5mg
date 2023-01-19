@@ -5,6 +5,17 @@ const { HairModel } = require("../Models/Haircare.mdel")
 
 const HairRoute = express.Router()
 
+HairRoute.get("/allhairs",async(req,res)=>{
+    try{
+    const product = await HairModel.find()
+    res.send(product)
+    }catch(err){
+    console.log(err)
+    console.log({"err":"Err while getting herbs data"})
+    }
+    })
+
+
 HairRoute.post("/addhairs",async(req,res)=>{
     const payload = req.body
     

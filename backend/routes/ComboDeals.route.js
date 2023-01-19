@@ -14,6 +14,29 @@ comboDealsRouter.get("/",async(req,res)=>{
  })
  
  
+ comboDealsRouter.get("/low",async(req,res)=>{
+   try{
+      const cerealss= await ComboDealsModel.find({price:{$lte:550}})
+      res.send(cerealss)
+   }catch(err){
+      console.log(err)
+      res.send("Something Went Wrong")
+   }
+})
+ 
+comboDealsRouter.get("/high",async(req,res)=>{
+   try{
+      const cerealss= await ComboDealsModel.find({price:{$gte:550}})
+      res.send(cerealss)
+   }catch(err){
+      console.log(err)
+      res.send("Something Went Wrong")
+   }
+})
+
+
+
+
 comboDealsRouter.post("/create",async(req,res)=>{
     const payload=req.body
     try{
