@@ -15,7 +15,7 @@ function SampleNextArrow(props) {
     <div
       className={className}
       style={{ ...style,display: "block", background: "grey",marginRight:"25px",borderRadius:"50px",
-      padding:"6px",width:"30px",height:"30px"}}
+      paddingTop:"12px",width:"40px",height:"30px"}}
       onClick={onClick}
     />
   );
@@ -27,7 +27,7 @@ function SamplePrevArrow(props) {
     <div
       className={className}
       style={{ ...style, display: "block", background: "grey",marginLeft:"25px",borderRadius:"50px",
-      padding:"6px",width:"30px",height:"30px"}}
+      paddingTop:"12px",width:"40px",height:"30px"}}
       onClick={onClick}
     />
   );
@@ -61,6 +61,13 @@ const settings = {
         tredingDealsData()
     },[])
   return (
+    <div>
+     <div style={{display:"flex",justifyContent:"space-between"}}>
+    <h1>Trending now</h1>
+    <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",
+    border:"0px"
+    }}>See All</button>
+    </div>
     <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
       <Slider {...settings}>
     {
@@ -77,7 +84,7 @@ const settings = {
       ))
     }
 </Slider>
-   
+   </div>
     </div>
   )
 }
