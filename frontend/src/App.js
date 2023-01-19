@@ -8,15 +8,12 @@ import { Filter } from "./components/Filter";
 function App() {
   return (
     <div className="App">
-      {/* <Navbar />
+      <Navbar />
       <AllRoutes />
-      <Footer /> */}
-
-<Filter/>
+      <Footer />
+      {/* <Filter/> */}
     </div>
   );
 }
 
 export default App;
-
-
