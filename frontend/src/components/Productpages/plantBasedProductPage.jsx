@@ -20,6 +20,7 @@ const PlantBasedProductPage = () => {
   const [price, setPrice] = useState("");
   const [cat, setCat] = useState("");
   const [data1, setData1] = useState("");
+  
 
   useEffect(() => {
     if (cat.length === 0) {
