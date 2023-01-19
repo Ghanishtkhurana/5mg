@@ -3,13 +3,16 @@ import "./App.css";
 import AllRoutes from "./pages/AllRoutes";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Filter } from "./components/Filter";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      {/* <Navbar />
       <AllRoutes />
-      <Footer />
+      <Footer /> */}
+
+<Filter/>
     </div>
   );
 }
