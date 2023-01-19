@@ -6,10 +6,10 @@ import Lab from "./Lab";
 import Products from "./Products";
 import SinglePage from "./SinglePage";
 import { ChakraProvider } from "@chakra-ui/react";
-import CerealProductPage from "../components/Productpages/CerealProductPage";
-import ComboDealsProductPage from "../components/Productpages/ComboDealsProductPage";
-import PlantBasedProductPage from "../components/Productpages/PlantBasedProductPage";
-import TrendingProductPage from "../components/Productpages/TrendingProductPage";
+import CerealProductPage from "../components/Productpages/cerealProductPage";
+import ComboDealsProductPage from "../components/Productpages/comboDealsProductPage";
+import PlantBasedProductPage from "../components/Productpages/plantBasedProductPage";
+import TrendingProductPage from "../components/Productpages/trendingProductPage";
 
 const AllRoutes = () => {
   return (
