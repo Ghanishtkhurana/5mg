@@ -4,15 +4,14 @@ import AllRoutes from "./pages/AllRoutes";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Filter } from "./components/Filter";
+import { ChakraProvider } from "@chakra-ui/react";
 
 function App() {
   return (
     <div className="App">
-      {/* <Navbar />
+      <ChakraProvider><Navbar /></ChakraProvider>
       <AllRoutes />
-      <Footer /> */}
-
-<Filter/>
+      <ChakraProvider><Footer /></ChakraProvider>
     </div>
   );
 }

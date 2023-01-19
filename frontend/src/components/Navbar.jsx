@@ -148,7 +148,7 @@ const Navbar = () => {
               <Box m={1}>
                 <Image
                   src="https://i.postimg.cc/B696yn9C/5mglogo-removebg-preview.png"
-                  width={"100px"}
+                  width={"100px"} height={"100px"}
                 />
               </Box>
             </Flex>
