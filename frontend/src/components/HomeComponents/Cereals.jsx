@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { Box,Image,Text } from '@chakra-ui/react'
+import {Link} from "react-router-dom"
 
 
 function SampleNextArrow(props) {
@@ -66,9 +67,11 @@ const Cereals = () => {
     <div>
      <div style={{display:"flex",justifyContent:"space-between"}}>
     <h1>Breakfast cereals</h1>
+    <Link to="/cerealproductspage">
     <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",
     border:"0px"
-    }}>See All</button>
+  }}>See All</button>
+  </Link>
     </div>
     <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
       <Slider {...settings}>
