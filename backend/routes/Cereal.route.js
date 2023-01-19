@@ -12,6 +12,17 @@ cerealRouter.get("/",async(req,res)=>{
        res.send("Something Went Wrong")
     }
  })
+
+ cerealRouter.get("/:id",async(req,res)=>{
+   try{
+     const {id}=req.params
+     const cereals= await CerealModel.findOne({_id:id})
+     res.send(cereals)
+  }catch(err){
+     console.log(err)
+     res.send("Something Went Wrong")
+  }
+})
  cerealRouter.get("/low",async(req,res)=>{
    try{
       const cerealss= await CerealModel.find({price:{$lte:550}})

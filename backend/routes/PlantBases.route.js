@@ -12,6 +12,17 @@ plantRouter.get("/",async(req,res)=>{
        res.send("Something Went Wrong")
     }
  })
+
+ plantRouter.get("/:id",async(req,res)=>{
+   try{
+     const {id}=req.params
+     const cereals= await PlantModel.findOne({_id:id})
+     res.send(cereals)
+  }catch(err){
+     console.log(err)
+     res.send("Something Went Wrong")
+  }
+})
  
  plantRouter.get("/low",async(req,res)=>{
    try{
