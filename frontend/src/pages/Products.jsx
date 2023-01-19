@@ -19,10 +19,9 @@ const Products = () => {
   const [price, setPrice] = useState("");
   const [cat, setCat] = useState("");
   const [data1, setData1] = useState("");
-  useEffect(() => {}, []);
 
   useEffect(() => {
-    if (cat.length == 0) {
+    if (cat.length === 0) {
       axios
         .get("http://localhost:4001/cereal")
         .then((res) => setData1(res.data))
@@ -88,7 +87,7 @@ const Products = () => {
               <Box>
                 {/* Second  */}
                 <Box h={"500px"} w={"230px"}>
-                  <Text fontSize={"19px"} textAlign={"left"} pt={2} pl={3} fontWeight={500} fontSize={"20px"} fontWeight={500}>
+                  <Text fontSize={"19px"} textAlign={"left"} pt={2} pl={3} fontWeight={500}>
                     Price
                   </Text>
 
@@ -214,7 +213,7 @@ const Products = () => {
                 {" "}
                 BREAKFAST CEREALS
               </Text>
-              {/* {data1.map((post) => (
+              {data1 && data1.map((post) => (
                 <Box
                   borderBottom={"2px"}
                   borderColor={"gray.200"}
@@ -292,7 +291,7 @@ const Products = () => {
                     </Box>
                   </Flex>
                 </Box>
-              ))} */}
+              ))}
             </Box>
           </Box>
         </Box>

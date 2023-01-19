@@ -6,6 +6,10 @@ import Lab from "./Lab";
 import Products from "./Products";
 import SinglePage from "./SinglePage";
 import { ChakraProvider } from "@chakra-ui/react";
+import CerealProductPage from "../components/Productpages/CerealProductPage";
+import ComboDealsProductPage from "../components/Productpages/ComboDealsProductPage";
+import PlantBasedProductPage from "../components/Productpages/PlantBasedProductPage";
+import TrendingProductPage from "../components/Productpages/TrendingProductPage";
 
 const AllRoutes = () => {
   return (
@@ -29,6 +33,10 @@ const AllRoutes = () => {
       <Route path="/covid" element={<Covid />} />
       <Route path="/singleproduct" element={<ChakraProvider><SinglePage /></ChakraProvider>} />
       <Route path="/products" element={<ChakraProvider><Products /></ChakraProvider>} />
+      <Route path="/cerealproductspage" element={<ChakraProvider><CerealProductPage /></ChakraProvider>} />
+      <Route path="/combodealspage" element={<ChakraProvider><ComboDealsProductPage /></ChakraProvider>} />
+      <Route path="/plantbasedproductspage" element={<ChakraProvider><PlantBasedProductPage/></ChakraProvider>} />
+      <Route path="/trendingproductpage" element={<ChakraProvider><TrendingProductPage /></ChakraProvider>} />
     </Routes>
   );
 };
