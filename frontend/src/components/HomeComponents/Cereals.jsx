@@ -77,7 +77,7 @@ const Cereals = () => {
       <Slider {...settings}>
     {
       data.map((item)=>(
-      <Box key={item.id}>
+      <Box key={item._id} style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
       <Box  boxSize='120px' ml="35px" mt="5px">
   <Image src={item.image} alt='Dan Abramov' />
 </Box>

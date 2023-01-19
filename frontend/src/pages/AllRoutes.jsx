@@ -31,7 +31,7 @@ const AllRoutes = () => {
         }
       />
       <Route path="/covid" element={<Covid />} />
-      <Route path="/singleproduct" element={<ChakraProvider><SinglePage /></ChakraProvider>} />
+      <Route path="/singleproduct/:id" element={<ChakraProvider><SinglePage /></ChakraProvider>} />
       <Route path="/products" element={<ChakraProvider><Products /></ChakraProvider>} />
       <Route path="/cerealproductspage" element={<ChakraProvider><CerealProductPage /></ChakraProvider>} />
       <Route path="/combodealspage" element={<ChakraProvider><ComboDealsProductPage /></ChakraProvider>} />

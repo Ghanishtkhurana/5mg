@@ -75,7 +75,7 @@ const settings = {
       <Slider {...settings}>
     {
       data.map((item)=>(
-      <Box key={item.id} box-shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px">
+      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px">
       <Box  boxSize='120px' ml="35px" mt="5px">
   <Image src={item.image} alt='Dan Abramov' />
 </Box>
