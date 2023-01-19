@@ -13,6 +13,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { FiSliders } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const ComboDealsProductPage = () => {
 
@@ -124,6 +125,7 @@ const ComboDealsProductPage = () => {
               <SimpleGrid columns={[3, 4]} spacing={6}>
                 {data1 &&
                   data1.map((post, i) => (
+                    <Link to={`/singleproduct/${post._id}`}>  
                     <Box
                       bgColor={"white"}
                       key={i}
@@ -188,6 +190,7 @@ const ComboDealsProductPage = () => {
                         </Flex>
                       </Box>
                     </Box>
+                    </Link>
                   ))}
               </SimpleGrid>
             </Box>

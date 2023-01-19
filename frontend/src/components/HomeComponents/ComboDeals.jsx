@@ -76,7 +76,7 @@ const ComboDeals = () => {
     <Slider {...settings}>
   {
     data.map((item)=>(
-    <Box key={item.id} box-shadow="rgba(149, 157, 165, 0.2) 0px 8px 24px">
+    <Link to={`/singleproduct/${item._id}`}><Box key={item._id} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" >
     <Box  boxSize='120px' ml="35px" mt="5px">
 <Image src={item.image} alt='Dan Abramov' />
 </Box>
@@ -86,6 +86,7 @@ const ComboDeals = () => {
 <Text color="black" ml="-25px">₹{item.price}</Text>
 
     </Box>
+    </Link>
     ))
   }
 </Slider>

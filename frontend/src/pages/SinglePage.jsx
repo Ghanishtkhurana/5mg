@@ -4,18 +4,38 @@ import {
   Image,
   Text,
   Icon,
-  RadioGroup,
-  Stack,
-  Radio,
   Button,
   Center,
 } from "@chakra-ui/react";
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { FaDotCircle } from "react-icons/fa";
 import { TbArrowWaveRightUp } from "react-icons/tb";
+import { useParams } from "react-router-dom";
+import { backendSite } from "../components/backendSiteLink/backendSite";
 
-const SinglePage = () => {
+const SinglePage = (prop) => {
+  console.log(prop)
+
+  const [data,setData]=useState({})
+  const {id}=useParams()
+  const getData=()=>{
+    axios.get(`${backendSite}/comboDeals/${id}`)
+    .then((res)=> {
+      console.log(res.data)
+      setData(res.data)
+  console.log(res.data);
+})
+  .catch(function (error) {
+   console.log(error);
+})
+  }
+  useEffect(()=>{
+    getData()
+  },[])
+
+
   return (
     <Box>
       <Flex
@@ -24,7 +44,7 @@ const SinglePage = () => {
       >
         {/* Product Image  */}
         <Center>
-          <Image src="https://onemg.gumlet.io/a_ignore,w_380,h_380,c_fit,q_auto,f_auto/cropped/wf4epamdbrwhyus9oz6f.jpg" />
+          <Image src={data.image} />
         </Center>
         {/* Product description  */}
         <Box m={10}>
@@ -35,12 +55,12 @@ const SinglePage = () => {
             fontSize={{ base: "19px", md: "", lg: "21px" }}
             fontWeight={500}
           >
-            Saffola Masala Oats Classic Masala
+            {data.title}
           </Text>
           <Flex mt={3} gap={4}>
             <Flex gap={2} bg={"green.400"} pr={1} pl={1}>
               <Text color={"white"} fontSize={"13px"} fontWeight={500}>
-                4.4
+                {data.rating}
               </Text>
               <Icon as={BsStarFill} w={3} mt={"3px"} h={3} color={"white"} />
             </Flex>
@@ -60,7 +80,6 @@ const SinglePage = () => {
               width={"35px"}
             />
             <Text fontWeight={500} mt={1} color={"rgb(255,111,97)"}>
-              Soffala
             </Text>
           </Flex>
           <Box mt={5}>
@@ -123,7 +142,7 @@ const SinglePage = () => {
                   color={"rgb(255,111,97)"}
                 />
                 <Text color={"black"} fontSize={"24px"} fontWeight={500}>
-                  ₹182
+                  ₹{" "}{data.price}
                 </Text>
                 <Box
                   bgColor={"green.100"}

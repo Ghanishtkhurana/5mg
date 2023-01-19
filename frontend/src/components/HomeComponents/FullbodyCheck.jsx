@@ -73,7 +73,7 @@ const FullbodyCheck = () => {
     <Slider {...settings}>
   {
     data.map((item)=>(
-    <Box key={item.id}>
+    <Box key={item._id}>
     <Text w="120px" ml="12px" color="black" fontSize={15}>{item.title}</Text>
 <Text w="120px" ml="12px" color="black" fontSize={10}>{item.no_of_tests}</Text>
     <Box  boxSize='120px' ml="35px" mt="5px">

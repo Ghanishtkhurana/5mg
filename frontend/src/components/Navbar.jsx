@@ -27,26 +27,31 @@ import React from "react";
 
 const Sec = [
   {
+    id:1,
     txt: "LAB TESTS",
     links: "/lab",
     icon: TbTestPipe,
   },
   {
+    id:2,
     txt: "CONSULT DOCTORS",
     links: "",
     icon: TbFirstAidKit,
   },
   {
+    id:3,
     txt: "COVID-19",
     links: "/covid",
     icon: RiVirusLine,
   },
   {
+    id:4,
     txt: "AYURVEDA",
     links: "",
     icon: TbPlant2,
   },
   {
+    id:5,
     txt: "CARE PLAN",
     links: "",
     icon: RiHandHeartLine,
@@ -55,10 +60,12 @@ const Sec = [
 
 const Third = [
   {
+    id:1,
     txt: "Login",
     link: "",
   },
   {
+    id:2,
     txt: "Sign Up",
     link: "",
   },
@@ -89,7 +96,7 @@ const Navbar = () => {
               </NavLink>
             </Box>
             {Sec.map((post, i) => (
-              <Box mt={1} key={i}>
+              <Box mt={1} key={post.id}>
                 <NavLink
                   to={post.links}
                   style={(isActive) => ({
@@ -111,7 +118,7 @@ const Navbar = () => {
           <Flex>
             {Third.map((post, i) => (
               <Button
-                key={i}
+                key={post.id}
                 m={1}
                 size="sm"
                 _hover={{}}
@@ -207,7 +214,7 @@ const Navbar = () => {
                       borderColor={"gray.300"}
                     >
                       {Sec.map((post) => (
-                        <Link to={post.links}>
+                        <Link to={post.links} key={post.id}>
                           <Flex flexDirection={"row"} gap={6}>
                             <Icon as={post.icon} w={6} h={6} />
                             <Text fontSize={"18px"}>{post.txt}</Text>
@@ -218,7 +225,7 @@ const Navbar = () => {
                     <Flex mt={5} alignItems={"end"}>
                       {Third.map((post, i) => (
                         <Button
-                          key={i}
+                          key={post.id}
                           m={1}
                           size="md"
                           _hover={{}}
