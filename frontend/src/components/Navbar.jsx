@@ -12,8 +12,6 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   DrawerBody,
-  Input,
-  DrawerFooter,
   useDisclosure,
 } from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
