@@ -16,7 +16,7 @@ function SampleNextArrow(props) {
     <div
       className={className}
       style={{ ...style, background: "grey",marginRight:"25px",borderRadius:"50px",
-      paddingTop:"12px",width:"40px",height:"30px"}}
+      paddingTop:"12px",width:"40px",height:"40px"}}
       onClick={onClick}
     />
   );
@@ -28,7 +28,7 @@ function SamplePrevArrow(props) {
     <div
       className={className}
       style={{ ...style, display: "block", background: "grey",marginLeft:"25px",borderRadius:"50px",
-      paddingTop:"12px",width:"40px",height:"30px"}}
+      paddingTop:"12px",width:"40px",height:"40px"}}
       onClick={onClick}
     />
   );
@@ -66,24 +66,24 @@ const Cereals = () => {
   return (
     <div>
      <div style={{display:"flex",justifyContent:"space-between"}}>
-    <h1>Breakfast cereals</h1>
+    <h1 style={{margin:"15px"}}>Breakfast cereals</h1>
     <Link to="/cerealproductspage">
-    <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",
-    border:"0px"
+    <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",margin:"15px",
+    border:"0px",width:"60px"
   }}>See All</button>
   </Link>
     </div>
-    <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
+    <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px",height:"250px"}}>
       <Slider {...settings}>
     {
       data.map((item)=>(
-      <Box key={item._id} style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
+      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="250px">
       <Box  boxSize='120px' ml="35px" mt="5px">
   <Image src={item.image} alt='Dan Abramov' />
 </Box>
-<Text w="120px" ml="12px" color="black">{item.title}</Text>
-<Text color="grey" ml="-25px">MRP</Text>
-<Text color="black" ml="-25px">₹{item.price}</Text>
+<Text w="120px" ml="12px" color="black" fontSize={10} h="50px">{item.title}</Text>
+<Text color="grey" ml="-25px" fontSize={12}>MRP</Text>
+<Text color="black" ml="-25px" fontSize={12}>₹{item.price}</Text>
 
       </Box>
       ))
