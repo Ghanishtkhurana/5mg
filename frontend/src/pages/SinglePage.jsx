@@ -15,13 +15,13 @@ import { TbArrowWaveRightUp } from "react-icons/tb";
 import { useParams } from "react-router-dom";
 import { backendSite } from "../components/backendSiteLink/backendSite";
 
-const SinglePage = (prop) => {
-  console.log(prop)
+const SinglePage = () => {
 
+const route=localStorage.getItem("route")
   const [data,setData]=useState({})
   const {id}=useParams()
   const getData=()=>{
-    axios.get(`${backendSite}/comboDeals/${id}`)
+    axios.get(`${backendSite}/${route}/${id}`)
     .then((res)=> {
       console.log(res.data)
       setData(res.data)

@@ -14,8 +14,8 @@ function SampleNextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style,display: "block", background: "grey",marginRight:"25px",borderRadius:"50px",
-      paddingTop:"12px",width:"40px",height:"30px"}}
+      style={{ ...style,display: "block", background: "grey",marginRight:"25px",borderRadius:"50px",marginTop:"-55px",
+      paddingTop:"12px",width:"40px",height:"40px"}}
       onClick={onClick}
     />
   );
@@ -26,8 +26,8 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "grey",marginLeft:"25px",borderRadius:"50px",
-      paddingTop:"12px",width:"40px",height:"30px"}}
+      style={{ ...style, display: "block", background: "grey",marginLeft:"25px",borderRadius:"50px",marginTop:"-55px",
+      paddingTop:"12px",width:"40px",height:"40px"}}
       onClick={onClick}
     />
   );
@@ -45,7 +45,33 @@ const ComboDeals = () => {
     slidesToShow: 7,
     slidesToScroll: 6,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 7,
+          slidesToScroll: 6,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 720,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 4,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2
+        }
+      }
+    ]
   };
 
 
@@ -62,28 +88,32 @@ const ComboDeals = () => {
     useEffect(()=>{
         getComboDealsData()
     },[])
+    const route= "comboDeals"
   return (
     <div>
-     <div style={{display:"flex",justifyContent:"space-between"}}>
-    <h1>Popular Combo Deals</h1>
+
+<div style={{display:"flex",justifyContent:"space-between"}}>
+    <h1 style={{margin:"15px"}}>Popular Combo Deals</h1>
     <Link to="/combodealspage">
     <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",
-    border:"0px"
+    border:"0px",margin:"15px",width:"65px"
   }}>See All</button>
+
   </Link>
     </div>
-    <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
+    <div style={{height:"320px",boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px"}}>
     <Slider {...settings}>
   {
     data.map((item)=>(
-    <Link to={`/singleproduct/${item._id}`}><Box key={item._id} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" >
+    <Link to={`/singleproduct/${item._id}`}>
+    <Box key={item._id}  h="320px" boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" onClick={()=>localStorage.setItem("route",route)}>
     <Box  boxSize='120px' ml="35px" mt="5px">
 <Image src={item.image} alt='Dan Abramov' />
 </Box>
-<Text w="120px" ml="12px" color="black">{item.title}</Text>
+<Text w="120px" ml="12px" color="black" fontSize={12} mt="5px" h="110px">{item.title}</Text>
 <Text w="120px" ml="12px" color="black" fontSize={10}>{item.offers}</Text>
-<Text color="grey" ml="-25px">MRP</Text>
-<Text color="black" ml="-25px">₹{item.price}</Text>
+<Text color="grey" ml="-25px" fontSize={10}>MRP</Text>
+<Text color="black" ml="-25px" fontSize={12}>₹{item.price}</Text>
 
     </Box>
     </Link>
@@ -95,4 +125,4 @@ const ComboDeals = () => {
   )
 }
 
-export default ComboDeals
+export default ComboDeals;

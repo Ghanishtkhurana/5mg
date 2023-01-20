@@ -20,8 +20,7 @@ function App() {
       <ChakraProvider>
       <Footer />
       </ChakraProvider>
-      
-   
+
     </div>
   );
 }

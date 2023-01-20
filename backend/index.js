@@ -1,3 +1,5 @@
+const { authantication } = require("./middlewares/auth.middleware");
+const { userrouter } = require("./routes/user.router");
 const express=require("express")
 const cors = require("cors")
 const { connection } = require("./config/db")
@@ -16,15 +18,26 @@ const {HerbsRoute} =require("./routes/Herbs.routes")
 require('dotenv').config()
 
 
-const app=express()
-app.use(cors({
-    origin:"*"
-}))
-app.use(express.json())
+const app = express();
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+app.use(express.json());
 
-app.get("/",(req,res)=>{
-    res.send("Home Page")
-}) 
+app.get("/", (req, res) => {
+  res.send("Home Page");
+});
+
+
+
+
+app.use("/users", userrouter);
+app.use(authantication);
+
+app.use("/fullBodyCheck", fullBodyCheckRouter);
+
 
 app.use("/fullBodyCheck",fullBodyCheckRouter)
 app.use("/comboDeals",comboDealsRouter)
@@ -32,13 +45,15 @@ app.use("/trending",trendingRouter)
 app.use("/cereal",cerealRouter)
 app.use("/plant",plantRouter)
 
+
 // ayurveda page-----
-app.use("/herbs",HerbsRoute)
-app.use("/skin",SkinRoute)
-app.use("/digest",DigestRoute)
-app.use("/hairs",HairRoute)
-app.use("/ayurveda",AyurvedaRoute)
+app.use("/herbs", HerbsRoute);
+app.use("/skin", SkinRoute);
+app.use("/digest", DigestRoute);
+app.use("/hairs", HairRoute);
+app.use("/ayurveda", AyurvedaRoute);
 // ayurveda page-----
+
 
 app.listen(4001,async()=>{
     try{
@@ -50,3 +65,5 @@ app.listen(4001,async()=>{
     }
     console.log("Port running")
 })
+
+

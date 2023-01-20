@@ -5,8 +5,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 
-
-
     const Carausel =({url})=>{
 const [data,setData] = useState("")
 
