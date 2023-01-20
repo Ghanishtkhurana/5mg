@@ -27,8 +27,8 @@ const AllRoutes = () => {
       <Route path="/trendingproductpage" element={<ChakraProvider><TrendingProductPage /></ChakraProvider>} />
       <Route path="/covid" element={  <Covid />   } />
       <Route path="/ayurved" element={ <ChakraProvider> <Ayurved/> </ChakraProvider>  }   />
-      <Route   path="ayurveda/:id" element={<ChakraProvider><Fullayurdes/></ChakraProvider>} />
-      <Route   path="/cart" element={<ChakraProvider><Cart /></ChakraProvider>} />
+      <Route path="ayurveda/:id" element={<ChakraProvider><Fullayurdes/></ChakraProvider>} />
+      <Route path="/cart" element={<ChakraProvider><Cart /></ChakraProvider>} />
     </Routes>
   );
 };
