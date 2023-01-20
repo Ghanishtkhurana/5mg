@@ -3,7 +3,6 @@ import AllRoutes from "./pages/AllRoutes";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ChakraProvider } from "@chakra-ui/react";
-import { Covid } from "./pages/covid_0381";
 
 
 

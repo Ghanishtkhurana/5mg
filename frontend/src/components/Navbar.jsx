@@ -160,7 +160,9 @@ const Navbar = () => {
             <Box>
               <Button m={1} size="sm" _hover={{}} bgColor={"rgb(255,111,97)"}>
                 <Flex>
+                  <Link to="/cart">
                   <Icon as={MdAddShoppingCart} w={5} color={"white"} h={5} />
+                  </Link>
                   <Text color={"white"} fontSize={"13px"}>
                     {/* count  */}
                   </Text>
