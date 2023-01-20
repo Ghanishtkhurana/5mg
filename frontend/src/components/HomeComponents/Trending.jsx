@@ -61,6 +61,7 @@ const settings = {
     useEffect(()=>{
         tredingDealsData()
     },[])
+    const route="trending"
   return (
     <div>
      <div style={{display:"flex",justifyContent:"space-between"}}>
@@ -75,7 +76,8 @@ const settings = {
       <Slider {...settings}>
     {
       data.map((item)=>(
-      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px">
+        <Link to={`/singleproduct/${item._id}`} >
+      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" onClick={()=>localStorage.setItem("route",route)}>
       <Box  boxSize='120px' ml="35px" mt="5px">
   <Image src={item.image} alt='Dan Abramov' />
 </Box>
@@ -84,6 +86,7 @@ const settings = {
 <Text color="black" ml="-25px">₹{item.price}</Text>
 
       </Box>
+      </Link>
       ))
     }
 </Slider>

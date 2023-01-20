@@ -62,6 +62,7 @@ const ComboDeals = () => {
     useEffect(()=>{
         getComboDealsData()
     },[])
+    const route= "comboDeals"
   return (
     <div>
      <div style={{display:"flex",justifyContent:"space-between"}}>
@@ -76,7 +77,7 @@ const ComboDeals = () => {
     <Slider {...settings}>
   {
     data.map((item)=>(
-    <Link to={`/singleproduct/${item._id}`}><Box key={item._id} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" >
+    <Link to={`/singleproduct/${item._id}`}><Box key={item._id} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" onClick={()=>localStorage.setItem("route",route)} >
     <Box  boxSize='120px' ml="35px" mt="5px">
 <Image src={item.image} alt='Dan Abramov' />
 </Box>

@@ -52,6 +52,7 @@ const ComboDealsProductPage = () => {
   const handlesort = (e) => {
     setPrice(e.target.value);
   };
+  const route="comboDeals"
   return (
     <Box>
       {isLargerThan1280 ? (
@@ -125,7 +126,7 @@ const ComboDealsProductPage = () => {
               <SimpleGrid columns={[3, 4]} spacing={6}>
                 {data1 &&
                   data1.map((post, i) => (
-                    <Link to={`/singleproduct/${post._id}`}>  
+                    <Link to={`/singleproduct/${post._id}`} onClick={()=>localStorage.setItem("route",route)}>  
                     <Box
                       bgColor={"white"}
                       key={i}
@@ -215,6 +216,7 @@ const ComboDealsProductPage = () => {
                 BREAKFAST CEREALS
               </Text>
               {data1 && data1.map((post) => (
+                 <Link to={`/singleproduct/${post._id}`} >
                 <Box
                   borderBottom={"2px"}
                   borderColor={"gray.200"}
@@ -222,6 +224,7 @@ const ComboDealsProductPage = () => {
                   pr={2}
                   pl={2}
                   pb={5}
+                  onClick={()=>localStorage.setItem("route",route)}
                 >
                   <Flex gap={5} ml={3} mr={3}>
                     <Box>
@@ -292,6 +295,7 @@ const ComboDealsProductPage = () => {
                     </Box>
                   </Flex>
                 </Box>
+                </Link>
               ))}
             </Box>
           </Box>
