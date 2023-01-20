@@ -10,7 +10,7 @@ import { Ayurved } from "./pages/Ayurved_0381";
 function App() {
   return (
     <div className="App">
-      {/* <ChakraProvider>
+      <ChakraProvider>
       <Navbar />
       </ChakraProvider>
 
@@ -18,8 +18,7 @@ function App() {
 
       <ChakraProvider>
       <Footer />
-      </ChakraProvider> */}
-      <Ayurved/>
+      </ChakraProvider>
     
     </div>
   );

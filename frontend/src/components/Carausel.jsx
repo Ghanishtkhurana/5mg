@@ -4,8 +4,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 
-
-
     const Carausel =({url})=>{
 const [data,setData] = useState("")
 console.log(url)
