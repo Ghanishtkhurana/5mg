@@ -204,6 +204,7 @@ margin:auto;
     grid-template-rows :repeat(1,550px);
     gap:20px 20px;
     width:90%;
+    
    @media all and (min-width: 768px) and (max-width: 1024px) {
     grid-template-columns :repeat(2,1fr);
     grid-template-rows :repeat(2,600px);

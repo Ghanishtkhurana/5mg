@@ -6,6 +6,17 @@ const { AyurvedaModel } = require("../Models/Ayurveda.model")
 
 const AyurvedaRoute = express.Router()
 
+
+AyurvedaRoute.get("/allayur",async(req,res)=>{
+    try{
+    const product = await AyurvedaModel.find()
+    res.send(product)
+    }catch(err){
+    console.log(err)
+    console.log({"err":"Err while getting herbs data"})
+    }
+    })
+
 AyurvedaRoute.post("/addayur",async(req,res)=>{
     const payload = req.body
     

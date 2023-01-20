@@ -5,7 +5,8 @@ import { useEffect } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-
+import { Box,Image,Text } from '@chakra-ui/react'
+import {Link} from "react-router-dom"
 
 
 function SampleNextArrow(props) {
@@ -14,27 +15,24 @@ function SampleNextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "grey",marginRight:"60px",
-      marginTop:"5px",padding:"0px",borderRadius:"20px" }}
+      style={{ ...style, background: "grey",marginRight:"25px",borderRadius:"50px",
+      paddingTop:"12px",width:"40px",height:"40px"}}
       onClick={onClick}
     />
   );
 }
 
-function SamplePrevArrow(props2) {
-  const { className2, style2, onClick2 } = props2;
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
   return (
     <div
-      className={className2}
-      style={{ ...style2, display: "block", background: "black",marginLeft:"-30px" }}
-      onClick={onClick2}
+      className={className}
+      style={{ ...style, display: "block", background: "grey",marginLeft:"25px",borderRadius:"50px",
+      paddingTop:"12px",width:"40px",height:"40px"}}
+      onClick={onClick}
     />
   );
 }
-
-
-
-
 
 const Cereals = () => {
   const [data,setData]=React.useState([])
@@ -43,8 +41,8 @@ const Cereals = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToShow: 7,
+    slidesToScroll: 6,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />
   };
@@ -67,32 +65,31 @@ const Cereals = () => {
 
   return (
     <div>
+     <div style={{display:"flex",justifyContent:"space-between"}}>
+    <h1 style={{margin:"15px"}}>Breakfast cereals</h1>
+    <Link to="/cerealproductspage">
+    <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",margin:"15px",
+    border:"0px",width:"60px"
+  }}>See All</button>
+  </Link>
+    </div>
+    <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px",height:"250px"}}>
       <Slider {...settings}>
-{
-        data.map((item)=>(
-            <div key={item.id} className="detailsCol">
-            <img className="imagest" src={item.image} alt="offers"/>
-<div style={{background:"white",marginTop:"-15px",width:"300px",height:"150px"}}>
-            <div style={{background:"white"}}>
-            <p style={{width:"300px",marginTop:"15px"}}>{item.description}</p>
-            </div>
-           
-            <div style={{display:"flex",background:"white"}}>
+    {
+      data.map((item)=>(
+      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="250px">
+      <Box  boxSize='120px' ml="35px" mt="5px">
+  <Image src={item.image} alt='Dan Abramov' />
+</Box>
+<Text w="120px" ml="12px" color="black" fontSize={10} h="50px">{item.title}</Text>
+<Text color="grey" ml="-25px" fontSize={12}>MRP</Text>
+<Text color="black" ml="-25px" fontSize={12}>₹{item.price}</Text>
 
-            <p style={{marginLeft:"30px",marginTop:"30px"}} onClick={()=>
-            alert(`${item.description}`)
-            }>{item.title}</p>
-
-            <button 
-            style={{borderRadius:"30px",width:"100px",marginTop:"30px",marginLeft:"70px"}}>
-            {item.des}</button>
-            </div>
-            </div>
-            </div>
-        ))
+      </Box>
+      ))
     }
 </Slider>
-   
+   </div>
     </div>
   )
 }

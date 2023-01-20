@@ -14,7 +14,7 @@ import React, { useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { FiSliders } from "react-icons/fi";
 
-const CerealProductPage = () => {
+const Products = () => {
   const [isLargerThan1280] = useMediaQuery("(min-width: 1080px)");
   const [price, setPrice] = useState("");
   const [cat, setCat] = useState("");
@@ -40,8 +40,8 @@ const CerealProductPage = () => {
         .then((res) => setData1(res.data))
         .catch((err) => console.log(err));
     }
-  }, [cat.length, price.length,cat,price]);
-  
+  }, [cat.length, price.length]);
+
   const Handlecategory = (value) => {
     setCat(value);
   };
@@ -57,6 +57,8 @@ const CerealProductPage = () => {
         //   Laptop
         <Box bgColor={"rgb(246,246,246)"}>
           <Flex gap={3}>
+            {/* Filter  */}
+            {/* One  */}
             <Box bgColor={"white"} h={"500px"} w={"300px"} >
               <Box borderBottom={"1px"} borderColor={"gray.300"}>
                 <Text fontSize={"19px"} textAlign={"left"} pt={2} pl={3} pb={2} fontWeight={500}>
@@ -83,7 +85,7 @@ const CerealProductPage = () => {
                 </Box>
               </Flex>
               <Box>
-
+                {/* Second  */}
                 <Box h={"500px"} w={"230px"}>
                   <Text fontSize={"19px"} textAlign={"left"} pt={2} pl={3} fontWeight={500}>
                     Price
@@ -298,4 +300,4 @@ const CerealProductPage = () => {
   );
 };
 
-export default CerealProductPage
+export default Products;

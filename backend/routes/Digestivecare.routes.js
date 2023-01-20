@@ -5,6 +5,18 @@ const { DigestModel } = require("../Models/Digestive.model")
 
 const DigestRoute = express.Router()
 
+DigestRoute.get("/alldigest",async(req,res)=>{
+    try{
+    const product = await DigestModel.find()
+    res.send(product)
+    }catch(err){
+    console.log(err)
+    console.log({"err":"Err while getting herbs data"})
+    }
+    })
+
+
+
 DigestRoute.post("/adddigest",async(req,res)=>{
     const payload = req.body
     

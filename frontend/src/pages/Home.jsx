@@ -19,6 +19,7 @@ const Home = () => {
       <Trending />
       <Cereals />
       <PlantBased />
+      <hr></hr>
     </div>
   )
 }
