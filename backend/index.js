@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 
 
 app.use("/users", userrouter);
-app.use(authantication);
+// app.use(authantication);
 
 app.use("/fullBodyCheck", fullBodyCheckRouter);
 
