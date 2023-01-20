@@ -3,8 +3,9 @@ import AllRoutes from "./pages/AllRoutes";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { ChakraProvider } from "@chakra-ui/react";
-import { Carausel } from "./components/Carausel";
-import { Ayurved } from "./pages/Ayurved_0381";
+import { Covid } from "./pages/covid_0381";
+
+
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
       <ChakraProvider>
       <Footer />
       </ChakraProvider>
-    
+
     </div>
   );
 }
