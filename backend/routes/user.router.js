@@ -10,24 +10,29 @@ userrouter.get("/", async (req, res) => {
 });
 userrouter.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
+  const userPresent = await UserModel.findOne({ email: email });
   // console.log(req.body);
-  try {
-    bcrypt.hash(password, 5, async (err, secure_password) => {
-      if (err) {
-        console.log(err);
-      } else {
-        const user = new UserModel({
-          email,
-          password: secure_password,
-          name,
-        });
-        await user.save();
-        res.send({ msg: "Registered" });
-      }
-    });
-  } catch (e) {
-    res.send({ msg: "Error in registering the user" });
-    console.log(e);
+  if (userPresent?.email) {
+    res.send({ msg: "User already exists" });
+  } else {
+    try {
+      bcrypt.hash(password, 5, async (err, secure_password) => {
+        if (err) {
+          console.log(err);
+        } else {
+          const user = new UserModel({
+            email,
+            password: secure_password,
+            name,
+          });
+          await user.save();
+          res.send({ msg: "Registered" });
+        }
+      });
+    } catch (e) {
+      res.send({ msg: "Error in registering the user" });
+      console.log(e);
+    }
   }
 });
 
@@ -35,11 +40,8 @@ userrouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await UserModel.find({ email });
-    const password_from_client = password;
-    const password_from_db = user[0].password;
-
     if (user.length > 0) {
-      bcrypt.compare(password_from_client, password_from_db, (err, result) => {
+      bcrypt.compare(password, user[0].password, (err, result) => {
         if (result) {
           const token = jwt.sign({ userID: user[0]._id }, "5mgusers");
           // console.log(token);
@@ -49,10 +51,10 @@ userrouter.post("/login", async (req, res) => {
         }
       });
     } else {
-      res.send("Wrong Credentials");
+      res.send({ msg: "Wrong Credentials" });
     }
   } catch (e) {
-    res.send("Logged In Failed");
+    res.send({ msg: "Logged In Failed" });
     console.log(e);
   }
 });
