@@ -13,6 +13,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { FiSliders } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const TrendingProductPage = () => {
 
@@ -51,6 +52,7 @@ const TrendingProductPage = () => {
   const handlesort = (e) => {
     setPrice(e.target.value);
   };
+  const route="trending"
   return (
     <Box>
       {isLargerThan1280 ? (
@@ -124,6 +126,7 @@ const TrendingProductPage = () => {
               <SimpleGrid columns={[3, 4]} spacing={6}>
                 {data1 &&
                   data1.map((post, i) => (
+                    <Link to={`/singleproduct/${post._id}`} >
                     <Box
                       bgColor={"white"}
                       key={i}
@@ -131,6 +134,7 @@ const TrendingProductPage = () => {
                       borderColor={"gray.400"}
                       p={2}
                       borderRadius={10}
+                      onClick={()=>localStorage.setItem("route",route)}
                     >
                       <Center>
                         <Image m={5} src={post.image} w={"100px"} h={"150px"} />
@@ -188,6 +192,7 @@ const TrendingProductPage = () => {
                         </Flex>
                       </Box>
                     </Box>
+                    </Link>
                   ))}
               </SimpleGrid>
             </Box>
@@ -212,6 +217,7 @@ const TrendingProductPage = () => {
                 BREAKFAST CEREALS
               </Text>
               {data1 && data1.map((post) => (
+                 <Link to={`/singleproduct/${post._id}`} >
                 <Box
                   borderBottom={"2px"}
                   borderColor={"gray.200"}
@@ -219,6 +225,7 @@ const TrendingProductPage = () => {
                   pr={2}
                   pl={2}
                   pb={5}
+                  onClick={()=>localStorage.setItem("route",route)}
                 >
                   <Flex gap={5} ml={3} mr={3}>
                     <Box>
@@ -289,6 +296,7 @@ const TrendingProductPage = () => {
                     </Box>
                   </Flex>
                 </Box>
+                </Link>
               ))}
             </Box>
           </Box>
