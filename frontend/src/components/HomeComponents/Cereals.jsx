@@ -88,7 +88,7 @@ const Cereals = () => {
     useEffect(()=>{
         cerealsData()
     },[])
-
+ const route="cereal"
   return (
     <div>
      <div style={{display:"flex",justifyContent:"space-between"}}>
@@ -103,7 +103,8 @@ const Cereals = () => {
       <Slider {...settings}>
     {
       data.map((item)=>(
-      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="250px">
+        <Link to={`/singleproduct/${item._id}`}>
+      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="250px" onClick={()=>localStorage.setItem("route",route)}>
       <Box  boxSize='120px' ml="35px" mt="5px">
   <Image 
   width={{base:"60px",md:"80px",lg:"80px"}}
@@ -124,7 +125,7 @@ width={{base:"100px",md:"120px",lg:"120px"}}
  marginLeft={{md:"10px",lg:"-25px" }}
 >₹{item.price}</Text>
 
-      </Box>
+      </Box></Link>
       ))
     }
 </Slider>
