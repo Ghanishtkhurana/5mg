@@ -105,11 +105,24 @@ const Cereals = () => {
       data.map((item)=>(
       <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="250px">
       <Box  boxSize='120px' ml="35px" mt="5px">
-  <Image src={item.image} alt='Dan Abramov' />
+  <Image 
+  width={{base:"60px",md:"80px",lg:"80px"}}
+  height={{base:"60px",md:"80px",lg:"120px"}}
+margin={{md:"auto"}}
+  src={item.image} alt='Dan Abramov' />
 </Box>
-<Text w="120px" ml="12px" color="black" fontSize={10} h="50px">{item.title}</Text>
-<Text color="grey" ml="-25px" fontSize={12}>MRP</Text>
-<Text color="black" ml="-25px" fontSize={12}>₹{item.price}</Text>
+
+<Text ml="12px" color="black" mt="5px"
+width={{base:"100px",md:"120px",lg:"120px"}}
+ fontSize={{base:"10px",md:"10px",lg:"12px"}}
+>{item.title}</Text>
+
+<Text color="grey" fontSize={10}
+ marginLeft={{md:"10px",lg:"-25px" }}
+>MRP</Text>
+<Text color="black" ml="-25px" fontSize={12}
+ marginLeft={{md:"10px",lg:"-25px" }}
+>₹{item.price}</Text>
 
       </Box>
       ))

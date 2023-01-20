@@ -106,9 +106,18 @@ const settings = {
       <Box  boxSize='120px' ml="35px" mt="5px">
   <Image h="100px" w="70px" src={item.image} alt='Dan Abramov' />
 </Box>
-<Text w="120px" ml="12px" color="black" fontSize={10} h="60px">{item.title}</Text>
-<Text color="grey" ml="-25px" fontSize={12}>MRP</Text>
-<Text color="black" ml="-25px" fontSize={12}>₹{item.price}</Text>
+
+<Text ml="12px" color="black" mt="5px"
+width={{base:"100px",md:"120px",lg:"120px"}}
+ fontSize={{base:"10px",md:"10px",lg:"12px"}}
+>{item.title}</Text>
+
+<Text color="grey" fontSize={10}
+ marginLeft={{md:"10px",lg:"-25px" }}
+>MRP</Text>
+<Text color="black" ml="-25px" fontSize={12}
+ marginLeft={{md:"10px",lg:"-25px" }}
+>₹{item.price}</Text>
 
       </Box>
       </Link>
