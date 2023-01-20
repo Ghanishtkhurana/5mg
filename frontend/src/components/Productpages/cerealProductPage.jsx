@@ -13,8 +13,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { FiSliders } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const CerealProductPage = () => {
+
   const [isLargerThan1280] = useMediaQuery("(min-width: 1080px)");
   const [price, setPrice] = useState("");
   const [cat, setCat] = useState("");
@@ -50,7 +52,7 @@ const CerealProductPage = () => {
   const handlesort = (e) => {
     setPrice(e.target.value);
   };
-
+  const route="cereal"
   return (
     <Box>
       {isLargerThan1280 ? (
@@ -119,7 +121,7 @@ const CerealProductPage = () => {
                 fontWeight={500}
                 fontSize={{ base: "", md: "", lg: "21px" }}
               >
-                PRODUCTS
+              Products
               </Text>
               <SimpleGrid columns={[3, 4]} spacing={6}>
                 {data1 &&
@@ -132,10 +134,13 @@ const CerealProductPage = () => {
                       p={2}
                       borderRadius={10}
                     >
+                      <Link to={`/singleproduct/${post._id}`} onClick={()=>localStorage.setItem("route",route)}> 
                       <Center>
                         <Image m={5} src={post.image} w={"100px"} h={"150px"} />
                       </Center>
+                      </Link>
                       <Box>
+                      <Link to={`/singleproduct/${post._id}`} onClick={()=>localStorage.setItem("route",route)}> 
                         <Text
                           m={1}
                           textAlign={"left"}
@@ -144,6 +149,7 @@ const CerealProductPage = () => {
                         >
                           {post.title}
                         </Text>
+                        </Link>
                         <Flex mt={2} gap={4}>
                           <Flex
                             gap={1}
@@ -219,12 +225,16 @@ const CerealProductPage = () => {
                   pr={2}
                   pl={2}
                   pb={5}
+                  onClick={()=>localStorage.setItem("route",route)}
                 >
                   <Flex gap={5} ml={3} mr={3}>
+                  <Link to={`/singleproduct/${post._id}`} onClick={()=>localStorage.setItem("route",route)}> 
                     <Box>
                       <Image width={"80px"} src={post.image} />
                     </Box>
+                    </Link>
                     <Box>
+                    <Link to={`/singleproduct/${post._id}`} onClick={()=>localStorage.setItem("route",route)}> 
                       <Text
                         m={1}
                         textAlign={"left"}
@@ -233,6 +243,7 @@ const CerealProductPage = () => {
                       >
                         {post.title}
                       </Text>
+                      </Link>
                       <Flex mt={2} gap={4}>
                         <Flex
                           gap={1}
@@ -295,7 +306,8 @@ const CerealProductPage = () => {
         </Box>
       )}
     </Box>
-  );
-};
+  )
+}
 
 export default CerealProductPage
+
