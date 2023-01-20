@@ -31,12 +31,54 @@ const AllRoutes = () => {
         }
       />
       <Route path="/covid" element={<Covid />} />
-      <Route path="/singleproduct/:id" element={<ChakraProvider><SinglePage /></ChakraProvider>} />
-      <Route path="/products" element={<ChakraProvider><Products /></ChakraProvider>} />
-      <Route path="/cerealproductspage" element={<ChakraProvider><CerealProductPage /></ChakraProvider>} />
-      <Route path="/combodealspage" element={<ChakraProvider><ComboDealsProductPage /></ChakraProvider>} />
-      <Route path="/plantbasedproductspage" element={<ChakraProvider><PlantBasedProductPage/></ChakraProvider>} />
-      <Route path="/trendingproductpage" element={<ChakraProvider><TrendingProductPage /></ChakraProvider>} />
+      <Route
+        path="/singleproduct/:id"
+        element={
+          <ChakraProvider>
+            <SinglePage />
+          </ChakraProvider>
+        }
+      />
+      <Route
+        path="/products"
+        element={
+          <ChakraProvider>
+            <Products />
+          </ChakraProvider>
+        }
+      />
+      <Route
+        path="/cerealproductspage"
+        element={
+          <ChakraProvider>
+            <CerealProductPage />
+          </ChakraProvider>
+        }
+      />
+      <Route
+        path="/combodealspage"
+        element={
+          <ChakraProvider>
+            <ComboDealsProductPage />
+          </ChakraProvider>
+        }
+      />
+      <Route
+        path="/plantbasedproductspage"
+        element={
+          <ChakraProvider>
+            <PlantBasedProductPage />
+          </ChakraProvider>
+        }
+      />
+      <Route
+        path="/trendingproductpage"
+        element={
+          <ChakraProvider>
+            <TrendingProductPage />
+          </ChakraProvider>
+        }
+      />
     </Routes>
   );
 };

@@ -6,20 +6,18 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Carausel } from "./components/Carausel";
 import { Ayurved } from "./pages/Ayurved_0381";
 
-
 function App() {
   return (
     <div className="App">
       <ChakraProvider>
-      <Navbar />
+        <Navbar />
       </ChakraProvider>
 
       <AllRoutes />
 
       <ChakraProvider>
-      <Footer />
+        <Footer />
       </ChakraProvider>
-    
     </div>
   );
 }
