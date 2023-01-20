@@ -3,10 +3,11 @@ import Slider from "react-slick";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import { Box } from "@chakra-ui/react";
 
     const Carausel =({url})=>{
 const [data,setData] = useState("")
-console.log(url)
+
 
 const Getdata=()=>{
     axios.get(`http://localhost:4001/${url}`)
@@ -19,7 +20,7 @@ const Getdata=()=>{
 useEffect(()=>{
     Getdata()
 },[])
-console.log(data)
+
      
           var settings = {
             dots: true,
@@ -56,27 +57,27 @@ console.log(data)
             ]
           };
           return (
-            <div    style={{   width:"95%",height:"400px", margin:"auto", marginTop:"50px", marginBottom:"50px"}}>
+            <Box    style={{backgroundColor:"white",   width:"95%",height:"400px", margin:"auto", marginTop:"5px", marginBottom:"50px"}}>
               
               <Slider {...settings}>
               
                   {
                     data.length >0 && data.map((item)=>{
-                        return <div key={item._id} >
+                        return <Box key={item._id} >
 
-                            <div  style={{border:"1px solid transparent",borderRadius:"10px"  , width:"90%" ,height:"300px", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" ,textAlign:"center", marginTop:"70px" }}>
+                            <Box  style={{border:"1px solid transparent",borderRadius:"10px"  , width:"90%" ,height:"300px", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" ,textAlign:"center", marginTop:"70px" }}>
                             <img  src={item.herbImage} style={{width:"100%"}}   />
                             <h4  >{item.name}</h4>
                             <p>{item.smalldes}</p>
-                            </div>
+                            </Box>
 
-                        </div>
+                        </Box>
                     })
                   }
                 
                
               </Slider>
-            </div>
+            </Box>
           );
         
       }
