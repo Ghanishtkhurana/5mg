@@ -1,3 +1,4 @@
+const { userrouter } = require("./routes/user.router");
 const express=require("express")
 const cors = require("cors")
 const { connection } = require("./config/db")
@@ -16,15 +17,21 @@ const {HerbsRoute} =require("./routes/Herbs.routes")
 require('dotenv').config()
 
 
-const app=express()
-app.use(cors({
-    origin:"*"
-}))
-app.use(express.json())
+const app = express();
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+app.use(express.json());
 
-app.get("/",(req,res)=>{
-    res.send("Home Page")
-}) 
+app.get("/", (req, res) => {
+  res.send("Home Page");
+});
+app.use("/users", userrouter);
+
+app.use("/fullBodyCheck", fullBodyCheckRouter);
+
 
 app.use("/fullBodyCheck",fullBodyCheckRouter)
 app.use("/comboDeals",comboDealsRouter)
@@ -50,3 +57,4 @@ app.listen(4001,async()=>{
     }
     console.log("Port running")
 })
+
