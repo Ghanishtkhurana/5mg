@@ -47,7 +47,7 @@ const Sec = [
   {
     id:4,
     txt: "AYURVEDA",
-    links: "",
+    links: "/ayurved",
     icon: TbPlant2,
   },
   {
