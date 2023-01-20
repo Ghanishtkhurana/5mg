@@ -14,8 +14,6 @@ const data=[
       price:247
   }
 ]
-
-
 const Cart = () => {
   return (
     <Flex>
