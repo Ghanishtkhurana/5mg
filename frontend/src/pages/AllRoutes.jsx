@@ -12,6 +12,7 @@ import PlantBasedProductPage from "../components/Productpages/plantBasedProductP
 import TrendingProductPage from "../components/Productpages/trendingProductPage";
 import { Ayurved } from "./Ayurved_0381";
 import { Fullayurdes } from "../components/Fullayurdes";
+import Cart from "./Cart";
 
 const AllRoutes = () => {
   return (
@@ -27,6 +28,7 @@ const AllRoutes = () => {
       <Route path="/covid" element={  <Covid />   } />
       <Route path="/ayurved" element={ <ChakraProvider> <Ayurved/> </ChakraProvider>  }   />
       <Route   path="ayurveda/:id" element={<ChakraProvider><Fullayurdes/></ChakraProvider>} />
+      <Route   path="/cart" element={<ChakraProvider><Cart /></ChakraProvider>} />
     </Routes>
   );
 };
