@@ -13,7 +13,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import React from "react";
-import AlertComp from "../AlertComp";
+import { PasswordInput } from "../login/PasswordInput";
 
 const Register = () => {
   const Navigate = useNavigate();
@@ -34,8 +34,7 @@ const Register = () => {
         .then((res) => {
           console.log(res);
           // console.log(res.data.token);
-          // alert(res.data.msg);
-          <AlertComp text={res.data.msg} />
+          alert(res.data.msg);
           Navigate("/login");
         })
         .catch((err) => {
@@ -87,13 +86,7 @@ const Register = () => {
           </Box>
           <Box w="100%">
             <FormLabel htmlFor="username">Password</FormLabel>
-            <Input
-              w="100%"
-              placeholder="Enter your password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <PasswordInput password={password} setPassword={setPassword} />
           </Box>
 
           <Box>
