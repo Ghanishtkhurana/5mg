@@ -15,6 +15,18 @@ import { BsStarFill } from "react-icons/bs";
 import { FiSliders } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
+let token = localStorage.getItem("Token")
+
+const postCart = async(data)=>{
+  const res = await axios.post("http://localhost:4001/cart",data,{
+    headers : {
+      "Content-Type" : "application/json",
+      "Authorization" : token
+    }
+  })
+  console.log(res.data)
+}
+
 const CerealProductPage = () => {
 
   const [isLargerThan1280] = useMediaQuery("(min-width: 1080px)");
@@ -42,8 +54,14 @@ const CerealProductPage = () => {
         .then((res) => setData1(res.data))
         .catch((err) => console.log(err));
     }
+    // getData()
   }, [cat.length, price.length,cat,price]);
-  
+
+  const handleTheCart = (post)=>{
+    postCart(post)
+    alert("item is add in your cart")
+  }
+
   const Handlecategory = (value) => {
     setCat(value);
   };
@@ -186,8 +204,8 @@ const CerealProductPage = () => {
                               ₹ {post.price}
                             </Text>
                           </Box>
-                          <Button bg={"none"}>
-                            <Text color={"rgb(255,111,97)"} fontWeight={500}>
+                          <Button onClick={()=>handleTheCart(post)} bg={"none"}>
+                            <Text  color={"rgb(255,111,97)"} fontWeight={500}>
                               ADD
                             </Text>
                           </Button>

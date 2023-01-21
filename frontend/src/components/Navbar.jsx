@@ -81,6 +81,9 @@ const Navbar = () => {
   const navigate = useNavigate();
   console.log("toki", token);
 
+
+ 
+
   useEffect(() => {
     if (token) {
       navigate("/");

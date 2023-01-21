@@ -15,6 +15,18 @@ import { TbArrowWaveRightUp } from "react-icons/tb";
 import { useParams } from "react-router-dom";
 import { backendSite } from "../components/backendSiteLink/backendSite";
 
+let token = localStorage.getItem("Token")
+
+const postCart = async(data)=>{
+  const res = await axios.post("http://localhost:4001/cart",data,{
+    headers : {
+      "Content-Type" : "application/json",
+      "Authorization" : token
+    }
+  })
+  console.log(res.data)
+}
+
 const SinglePage = () => {
 
 const route=localStorage.getItem("route")
@@ -23,9 +35,9 @@ const route=localStorage.getItem("route")
   const getData=()=>{
     axios.get(`${backendSite}/${route}/${id}`)
     .then((res)=> {
-      console.log(res.data)
+      // console.log(res.data)
       setData(res.data)
-  console.log(res.data);
+  // console.log(res.data);
 })
   .catch(function (error) {
    console.log(error);
@@ -35,6 +47,10 @@ const route=localStorage.getItem("route")
     getData()
   },[])
 
+  const handleTheCart = (data)=>{
+    postCart(data)
+    alert("item is add in your cart")
+  }
 
   return (
     <Box>
@@ -156,7 +172,7 @@ const route=localStorage.getItem("route")
                 </Box>
               </Flex>
             </Box>
-            <Button _hover={{}} m={2} bgColor={"rgb(255,111,97)"}>
+            <Button onClick={()=>handleTheCart(data)} _hover={{}} m={2} bgColor={"rgb(255,111,97)"}>
               <Text
                 color={"white"}
                 fontSize={{ base: "", md: "", lg: "15px" }}
