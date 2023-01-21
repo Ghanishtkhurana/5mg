@@ -16,7 +16,7 @@ const data=[
 ]
 const Cart = () => {
   return (
-    <Flex>
+    <Box display={{sm:"table-column",md:"flex",lg:"flex"}}>
 <Box boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" w="600px" ml="30px" h="auto">
 
 <Box>
@@ -73,7 +73,7 @@ const Cart = () => {
    <Button w="100%" bg="#FF6F61" width="400px" ml="20px" mt="10px">CHECKOUT</Button>
     </Box>
 
-    </Flex>
+    </Box>
   )
 }
 

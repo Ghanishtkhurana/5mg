@@ -99,24 +99,30 @@ const Cereals = () => {
   }}>See All</button>
   </Link>
     </div>
-    <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px",height:"250px"}}>
+    <div style={{boxShadow:"rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+    height:"180px"}}>
       <Slider {...settings}>
     {
       data.map((item)=>(
         <Link to={`/singleproduct/${item._id}`}>
-      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="250px" onClick={()=>localStorage.setItem("route",route)}>
-      <Box  boxSize='120px' ml="35px" mt="5px">
-  <Image 
+      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
+       h="180px" 
+      onClick={()=>localStorage.setItem("route",route)}>
+      
+      <Box  boxSize='90px' ml="35px" mt="5px">
+    <Image 
   width={{base:"60px",md:"80px",lg:"80px"}}
-  height={{base:"60px",md:"80px",lg:"120px"}}
+  height={{base:"60px",md:"80px",lg:"85px"}}
 margin={{md:"auto"}}
   src={item.image} alt='Dan Abramov' />
 </Box>
 
+<Box h="35px" overflow="hidden">
 <Text ml="12px" color="black" mt="5px"
 width={{base:"100px",md:"120px",lg:"120px"}}
- fontSize={{base:"10px",md:"10px",lg:"12px"}}
+fontSize={{base:"7px",md:"8px",lg:"10px"}}
 >{item.title}</Text>
+</Box>
 
 <Text color="grey" fontSize={10}
  marginLeft={{md:"10px",lg:"-25px" }}
