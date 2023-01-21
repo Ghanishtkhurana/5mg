@@ -44,7 +44,33 @@ const PlantBased = () => {
     slidesToShow: 7,
     slidesToScroll: 6,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 7,
+          slidesToScroll: 6,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 720,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 4,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2
+        }
+      }
+    ]
   };
 
 
@@ -62,6 +88,7 @@ const PlantBased = () => {
     useEffect(()=>{
         plantsBasedData()
     },[])
+    const route="plant"
   return (
     <div>
     <div style={{display:"flex",justifyContent:"space-between"}}>
@@ -72,19 +99,34 @@ const PlantBased = () => {
   }}>See All</Button>
   </Link>
     </div>
-    <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px",height:"250px"}}>
+    <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px",height:"280px"}}>
     <Slider {...settings}>
   {
     data.map((item)=>(
-    <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="250px">
+      <Link to={`/singleproduct/${item._id}`}>
+    <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="280px" onClick={()=>localStorage.setItem("route",route)}>
     <Box  boxSize='120px' ml="35px" mt="5px">
-<Image src={item.image} alt='Dan Abramov' />
+<Image 
+width={{base:"60px",md:"80px",lg:"80px"}}
+height={{base:"80px",md:"80px",lg:"120px"}}
+margin={{md:"auto"}}
+src={item.image} alt='Dan Abramov' />
 </Box>
-<Text w="120px" ml="12px" color="black" fontSize={10} h="75px">{item.title}</Text>
+
+<Text ml="12px" color="black" mt="5px"
+width={{base:"100px",md:"120px",lg:"120px"}}
+ fontSize={{base:"10px",md:"10px",lg:"12px"}}
+>{item.title}</Text>
+
 <Text w="120px" ml="12px" color="black" fontSize={10}>{item.offers}</Text>
-<Text color="grey" ml="-25px" fontSize={12}>MRP</Text>
-<Text color="black" ml="-25px" fontSize={12}>₹{item.price}</Text>
+<Text color="grey" fontSize={10}
+ marginLeft={{md:"10px",lg:"-25px" }}
+>MRP</Text>
+<Text color="black" ml="-25px" fontSize={12}
+ marginLeft={{md:"10px",lg:"-25px" }}
+>₹{item.price}</Text>
     </Box>
+    </Link>
     ))
   }
   

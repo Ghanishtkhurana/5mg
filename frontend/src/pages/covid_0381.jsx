@@ -10,7 +10,7 @@ import { Prepare } from '../components/Prepare_0381'
 export const Covid = () => {
   return (
     <div> 
-        <h1>Covid 19  page</h1>
+        
    <Covidepagewrapper>
 
 <Box1>

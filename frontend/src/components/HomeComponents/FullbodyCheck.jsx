@@ -45,7 +45,34 @@ const FullbodyCheck = () => {
     slidesToShow: 7,
     slidesToScroll: 6,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 7,
+          slidesToScroll: 6,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 4,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2
+        }
+      }
+    ]
+    
   };
 
 
@@ -81,7 +108,10 @@ const FullbodyCheck = () => {
 <Text w="120px" ml="12px" color="black" fontSize={10}>{item.no_of_tests}</Text>
     <Box  boxSize='120px' ml="35px" mt="5px">
     <Flex ml="-5px">
-    <Image w="60px" src={item.image} alt='Dan Abramov' />
+    <Image width="50px" mt="5px"
+//     width={{base:"60px",md:"80px",lg:"120px"}}
+// margin={{md:"auto"}}
+     src={item.image} alt='Dan Abramov' />
      <p style={{color:"white",background:"green",fontSize:"10px",padding:"2px",height:"20px",
      marginTop:"15px"}}>{item.rating}✰</p> 
 <Text fontSize={10} ml="2px" mt="15px">ISO</Text>
@@ -89,7 +119,12 @@ const FullbodyCheck = () => {
 </Box>
 <Text color="grey" ml="-25px" mt="-70px" fontSize={12}>MRP</Text>
 <Text color="black" ml="-25px" fontSize={12}>₹{item.price}</Text>
-
+{/* <Text color="grey" fontSize={10}
+ marginLeft={{md:"10px",lg:"-25px" }}
+>MRP</Text>
+<Text color="black" ml="-25px" fontSize={12}
+ marginLeft={{md:"10px",lg:"-25px" }}
+>₹{item.price}</Text> */}
     </Box>
     ))
   }

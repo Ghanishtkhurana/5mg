@@ -121,12 +121,11 @@ const TrendingProductPage = () => {
                 fontWeight={500}
                 fontSize={{ base: "", md: "", lg: "21px" }}
               >
-                PRODUCTS
+              Products
               </Text>
               <SimpleGrid columns={[3, 4]} spacing={6}>
                 {data1 &&
                   data1.map((post, i) => (
-                    <Link to={`/singleproduct/${post._id}`} >
                     <Box
                       bgColor={"white"}
                       key={i}
@@ -134,12 +133,14 @@ const TrendingProductPage = () => {
                       borderColor={"gray.400"}
                       p={2}
                       borderRadius={10}
-                      onClick={()=>localStorage.setItem("route",route)}
                     >
+                      <Link to={`/singleproduct/${post._id}`} onClick={()=>localStorage.setItem("route",route)}> 
                       <Center>
                         <Image m={5} src={post.image} w={"100px"} h={"150px"} />
                       </Center>
+                      </Link>
                       <Box>
+                      <Link to={`/singleproduct/${post._id}`} onClick={()=>localStorage.setItem("route",route)}> 
                         <Text
                           m={1}
                           textAlign={"left"}
@@ -148,6 +149,7 @@ const TrendingProductPage = () => {
                         >
                           {post.title}
                         </Text>
+                        </Link>
                         <Flex mt={2} gap={4}>
                           <Flex
                             gap={1}
@@ -192,7 +194,6 @@ const TrendingProductPage = () => {
                         </Flex>
                       </Box>
                     </Box>
-                    </Link>
                   ))}
               </SimpleGrid>
             </Box>
@@ -217,7 +218,6 @@ const TrendingProductPage = () => {
                 BREAKFAST CEREALS
               </Text>
               {data1 && data1.map((post) => (
-                 <Link to={`/singleproduct/${post._id}`} >
                 <Box
                   borderBottom={"2px"}
                   borderColor={"gray.200"}
@@ -228,10 +228,13 @@ const TrendingProductPage = () => {
                   onClick={()=>localStorage.setItem("route",route)}
                 >
                   <Flex gap={5} ml={3} mr={3}>
+                  <Link to={`/singleproduct/${post._id}`} onClick={()=>localStorage.setItem("route",route)}> 
                     <Box>
                       <Image width={"80px"} src={post.image} />
                     </Box>
+                    </Link>
                     <Box>
+                    <Link to={`/singleproduct/${post._id}`} onClick={()=>localStorage.setItem("route",route)}> 
                       <Text
                         m={1}
                         textAlign={"left"}
@@ -240,6 +243,7 @@ const TrendingProductPage = () => {
                       >
                         {post.title}
                       </Text>
+                      </Link>
                       <Flex mt={2} gap={4}>
                         <Flex
                           gap={1}
@@ -296,7 +300,6 @@ const TrendingProductPage = () => {
                     </Box>
                   </Flex>
                 </Box>
-                </Link>
               ))}
             </Box>
           </Box>
