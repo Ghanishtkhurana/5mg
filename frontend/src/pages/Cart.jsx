@@ -5,19 +5,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-// const data=[
-//   {
-//       id:1,
-//       title:"Accu-Chek Combo Pack of Active 50 Test Strip & 2 Pack of Softclix Lancet (25 Each)",
-//       price:2388
-//   },
-//   {
-//       id:2,
-//       title:"Immunity Care Combo of 1mg Panch Tulsi 30ml Drops and Patanjali Ayurveda Giloy Ghanvati 60 Tablet",
-//       price:247
-//   }
-// ]
-
 let token = localStorage.getItem("Token");
 
 const getCart = async () => {

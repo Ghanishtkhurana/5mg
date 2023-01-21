@@ -58,7 +58,7 @@ const ComboDeals = () => {
         }
       },
       {
-        breakpoint: 720,
+        breakpoint: 768,
         settings: {
           slidesToShow: 5,
           slidesToScroll: 4,
@@ -107,27 +107,36 @@ const ComboDeals = () => {
   {
     data.map((item)=>(
     <Link to={`/singleproduct/${item._id}`}>
-    <Box key={item._id}  h="320px"
-     boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+    {/* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */}
+    <Box key={item._id}  h="200px"
+     boxShadow="rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
       onClick={()=>localStorage.setItem("route",route)}>
-    <Box  boxSize='120px' ml="35px" mt="5px">
+    <Box  boxSize='80px' ml="35px" mt="5px">
     <Image 
   width={{base:"60px",md:"80px",lg:"80px"}}
-  height={{base:"60px",md:"80px",lg:"80px"}}
+  height={{base:"60px",md:"80px",lg:"70px"}}
 margin={{md:"auto"}}
   src={item.image} alt='Dan Abramov' />
 </Box>
-<Text ml="12px" color="black" mt="5px"
+
+<Box h="35px" overflow="hidden">
+<Text ml="25px" color="black" mt="5px"
 width={{base:"100px",md:"120px",lg:"120px"}}
- fontSize={{base:"10px",md:"10px",lg:"12px"}}
+ fontSize={{base:"7px",md:"8px",lg:"10px"}}
 >{item.title}</Text>
-<Text w="120px" ml="12px" color="black" fontSize={10}
-width={{base:"100px",md:"120px",lg:"120px"}}
+</Box>
+
+{/* <Box h="25px"> */}
+<Text color="black" fontSize={8}
+ml={{base:"30px",md:"35px",lg:"35px"}}
+width={{base:"70px",md:"80px",lg:"95px"}}
 >{item.offers}</Text>
+ {/* </Box> */}
+
 <Text color="grey" fontSize={10}
  marginLeft={{md:"10px",lg:"-25px" }}
 >MRP</Text>
-<Text color="black" ml="-25px" fontSize={12}
+<Text color="black" fontSize={12}
  marginLeft={{md:"10px",lg:"-25px" }}
 >₹{item.price}</Text>
 

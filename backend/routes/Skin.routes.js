@@ -6,7 +6,7 @@ const { SkincareModel } = require("../Models/Skincare.model")
 const SkinRoute = express.Router()
 
 
-SkinRoute.get("/allskin",async(req,res)=>{
+SkinRoute.get("/",async(req,res)=>{
     try{
     const product = await SkincareModel.find()
     res.send(product)
@@ -15,6 +15,17 @@ SkinRoute.get("/allskin",async(req,res)=>{
     console.log({"err":"Err while getting herbs data"})
     }
     })
+
+    SkinRoute.get("/:id",async(req,res)=>{
+        const id = req.params.id
+        try{
+        const product = await SkincareModel.findOne({"_id":id})
+        res.send(product)
+        }catch(err){
+        console.log(err)
+        console.log({"err":"Err while getting herbs data"})
+        }
+        })
 
 
 SkinRoute.post("/addskin",async(req,res)=>{

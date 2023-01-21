@@ -26,7 +26,7 @@ userrouter.post("/register", async (req, res) => {
             name,
           });
           await user.save();
-          res.send({ msg: "Registered" });
+          res.send({ msg: "Registered SucessFully" });
         }
       });
     } catch (e) {
@@ -45,7 +45,7 @@ userrouter.post("/login", async (req, res) => {
         if (result) {
           const token = jwt.sign({ userID: user[0]._id }, "5mgusers");
           // console.log(token);
-          res.send({ msg: "Logged in Successfull", token: token });
+          res.send({ msg: "Logged in SuccessFull", token: token });
         } else {
           res.send({ msg: "Wrong Credentials" });
         }

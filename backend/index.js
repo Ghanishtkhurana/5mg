@@ -24,6 +24,7 @@ app.use(
   cors({
     origin: "*",
   })
+
   );
   app.use(express.json());
   
@@ -37,7 +38,6 @@ app.use(
   app.use("/users", userrouter);
   // app.use(authantication);
   
-  app.use("/fullBodyCheck", fullBodyCheckRouter);
   
   
   app.use("/fullBodyCheck",fullBodyCheckRouter)
@@ -48,6 +48,7 @@ app.use(
   
   // Cart 
   app.use("/cart",cartRouter)
+
 
 // ayurveda page-----
 app.use("/herbs", HerbsRoute);

@@ -23,16 +23,7 @@ trendingRouter.get("/",async(req,res)=>{
    }
 })
  
-trendingRouter.get("/:id",async(req,res)=>{
-   try{
-     const {id}=req.params
-     const cereals= await TrendingModel.findOne({_id:id})
-     res.send(cereals)
-  }catch(err){
-     console.log(err)
-     res.send("Something Went Wrong")
-  }
-})
+
 
 trendingRouter.get("/high",async(req,res)=>{
    try{
@@ -44,7 +35,16 @@ trendingRouter.get("/high",async(req,res)=>{
    }
 })
 
-
+trendingRouter.get("/:id",async(req,res)=>{
+   try{
+     const {id}=req.params
+     const cereals= await TrendingModel.findOne({_id:id})
+     res.send(cereals)
+  }catch(err){
+     console.log(err)
+     res.send("Something Went Wrong")
+  }
+})
 
 
 trendingRouter.post("/create",async(req,res)=>{

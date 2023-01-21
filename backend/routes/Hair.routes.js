@@ -5,7 +5,7 @@ const { HairModel } = require("../Models/Haircare.mdel")
 
 const HairRoute = express.Router()
 
-HairRoute.get("/allhairs",async(req,res)=>{
+HairRoute.get("/",async(req,res)=>{
     try{
     const product = await HairModel.find()
     res.send(product)
@@ -14,6 +14,16 @@ HairRoute.get("/allhairs",async(req,res)=>{
     console.log({"err":"Err while getting herbs data"})
     }
     })
+    HairRoute.get("/:id",async(req,res)=>{
+        const id = req.params.id
+        try{
+        const product = await HairModel.findOne({"_id":id})
+        res.send(product)
+        }catch(err){
+        console.log(err)
+        console.log({"err":"Err while getting herbs data"})
+        }
+        })
 
 
 HairRoute.post("/addhairs",async(req,res)=>{

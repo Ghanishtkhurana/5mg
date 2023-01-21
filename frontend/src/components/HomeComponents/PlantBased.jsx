@@ -99,24 +99,28 @@ const PlantBased = () => {
   }}>See All</Button>
   </Link>
     </div>
-    <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px",height:"280px"}}>
+    <div style={{boxShadow:"rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",height:"180px"}}>
     <Slider {...settings}>
   {
     data.map((item)=>(
       <Link to={`/singleproduct/${item._id}`}>
-    <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="280px" onClick={()=>localStorage.setItem("route",route)}>
-    <Box  boxSize='120px' ml="35px" mt="5px">
-<Image 
-width={{base:"60px",md:"80px",lg:"80px"}}
-height={{base:"80px",md:"80px",lg:"120px"}}
+    <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" h="180px" 
+    onClick={()=>localStorage.setItem("route",route)}>
+   
+    <Box  boxSize='90px' ml="35px" mt="5px">
+    <Image 
+  width={{base:"60px",md:"80px",lg:"80px"}}
+  height={{base:"60px",md:"80px",lg:"95px"}}
 margin={{md:"auto"}}
-src={item.image} alt='Dan Abramov' />
+  src={item.image} alt='Dan Abramov' />
 </Box>
 
-<Text ml="12px" color="black" mt="5px"
+<Box h="35px" overflow="hidden">
+<Text ml="16px" color="black" mt="5px"
 width={{base:"100px",md:"120px",lg:"120px"}}
- fontSize={{base:"10px",md:"10px",lg:"12px"}}
+fontSize={{base:"7px",md:"8px",lg:"10px"}}
 >{item.title}</Text>
+</Box>
 
 <Text w="120px" ml="12px" color="black" fontSize={10}>{item.offers}</Text>
 <Text color="grey" fontSize={10}

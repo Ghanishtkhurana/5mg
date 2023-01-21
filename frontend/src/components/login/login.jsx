@@ -15,6 +15,7 @@ import { useNavigate, Link } from "react-router-dom";
 import React from "react";
 import AlertComp from "../AlertComp";
 import { useSelector } from "react-redux";
+import { PasswordInput } from "./PasswordInput";
 
 const Login = () => {
   const Navigate = useNavigate();
@@ -76,13 +77,7 @@ const Login = () => {
           </Box>
           <Box w="100%">
             <FormLabel htmlFor="username">Password</FormLabel>
-            <Input
-              w="100%"
-              placeholder="Enter your password"
-              type="text"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <PasswordInput password={password} setPassword={setPassword} />
           </Box>
 
           <Box>
@@ -97,7 +92,7 @@ const Login = () => {
             <Box>Don't Have an Account?</Box>
             <Link to="/signup">
               <Box
-              w={"100px"}
+                w={"100px"}
                 margin="auto"
                 backgroundColor="#ff6f61"
                 padding="4px"

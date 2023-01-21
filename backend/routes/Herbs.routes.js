@@ -7,7 +7,7 @@ const HerbsRoute = express.Router()
 
 
 
-HerbsRoute.get("/allherbs",async(req,res)=>{
+HerbsRoute.get("/",async(req,res)=>{
 try{
 const product = await HerbModel.find()
 res.send(product)
@@ -17,9 +17,18 @@ console.log({"err":"Err while getting herbs data"})
 }
 })
 
+HerbsRoute.get("/:id",async(req,res)=>{
+    const id = req.params.id
+    try{
+    const product = await HerbModel.findOne({"_id":id})
+    res.send(product)
+    }catch(err){
+    console.log(err)
+    console.log({"err":"Err while getting herbs data"})
+    }
+    })
 
-
-HerbsRoute.post("/addherbs",async(req,res)=>{
+HerbsRoute.post("/",async(req,res)=>{
     const payload = req.body
     
     try{
