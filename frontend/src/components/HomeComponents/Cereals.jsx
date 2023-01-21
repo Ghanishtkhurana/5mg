@@ -87,6 +87,56 @@ const Cereals = () => {
     ],
   };
 
+
+    const cerealsData=()=>{
+        axios.get(`${backendSite}/cereal`)
+          .then((res)=> {
+            setData(res.data)
+        console.log("cerealsData:",res.data);
+     })
+        .catch(function (error) {
+         console.log(error);
+     })
+    }
+    useEffect(()=>{
+        cerealsData()
+    },[])
+ const route="cereal"
+  return (
+    <div>
+     <div style={{display:"flex",justifyContent:"space-between"}}>
+    <h1 style={{margin:"15px"}}>Breakfast cereals</h1>
+    <Link to="/cerealproductspage">
+    <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",margin:"15px",
+    border:"0px",width:"60px"
+  }}>See All</button>
+  </Link>
+    </div>
+    <div style={{boxShadow:"rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+    height:"180px"}}>
+      <Slider {...settings}>
+    {
+      data.map((item)=>(
+        <Link to={`/singleproduct/${item._id}`}>
+      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px"
+       h="180px" 
+      onClick={()=>localStorage.setItem("route",route)}>
+      
+      <Box  boxSize='90px' ml="35px" mt="5px">
+    <Image 
+  width={{base:"60px",md:"80px",lg:"80px"}}
+  height={{base:"60px",md:"80px",lg:"85px"}}
+margin={{md:"auto"}}
+  src={item.image} alt='Dan Abramov' />
+</Box>
+
+<Box h="35px" overflow="hidden">
+<Text ml="12px" color="black" mt="5px"
+width={{base:"100px",md:"120px",lg:"120px"}}
+fontSize={{base:"7px",md:"8px",lg:"10px"}}
+>{item.title}</Text>
+</Box>
+
   const cerealsData = () => {
     axios
       .get(`${backendSite}/cereal`)
@@ -147,6 +197,7 @@ const Cereals = () => {
                     alt="Dan Abramov"
                   />
                 </Box>
+
 
                 <Text
                   ml="12px"
