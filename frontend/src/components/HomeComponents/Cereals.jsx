@@ -73,8 +73,6 @@ const Cereals = () => {
     ]
   };
 
-
-
     const cerealsData=()=>{
         axios.get(`${backendSite}/cereal`)
           .then((res)=> {
