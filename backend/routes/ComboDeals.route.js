@@ -12,16 +12,7 @@ comboDealsRouter.get("/",async(req,res)=>{
        res.send("Something Went Wrong")
     }
  })
- comboDealsRouter.get("/:id",async(req,res)=>{
-    try{
-      const {id}=req.params
-      const combodeals= await ComboDealsModel.findOne({_id:id})
-      res.send(combodeals)
-   }catch(err){
-      console.log(err)
-      res.send("Something Went Wrong")
-   }
-})
+ 
  
  
  comboDealsRouter.get("/low",async(req,res)=>{
@@ -44,7 +35,16 @@ comboDealsRouter.get("/high",async(req,res)=>{
    }
 })
 
-
+comboDealsRouter.get("/:id",async(req,res)=>{
+   try{
+     const {id}=req.params
+     const combodeals= await ComboDealsModel.findOne({_id:id})
+     res.send(combodeals)
+  }catch(err){
+     console.log(err)
+     res.send("Something Went Wrong")
+  }
+})
 
 
 comboDealsRouter.post("/create",async(req,res)=>{
