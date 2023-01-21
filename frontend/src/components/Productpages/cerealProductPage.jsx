@@ -14,11 +14,12 @@ import React, { useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { FiSliders } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { backendSite } from "../backendSiteLink/backendSite";
 
 let token = localStorage.getItem("Token")
 
 const postCart = async(data)=>{
-  const res = await axios.post("http://localhost:4001/cart",data,{
+  const res = await axios.post(`${backendSite}/cart`,data,{
     headers : {
       "Content-Type" : "application/json",
       "Authorization" : token
@@ -37,12 +38,12 @@ const CerealProductPage = () => {
   useEffect(() => {
     if (cat.length === 0) {
       axios
-        .get("http://localhost:4001/cereal")
+        .get(`${backendSite}/cereal`)
         .then((res) => setData1(res.data))
         .catch((err) => console.log(err));
     } else if (cat.length > 0 && price.length > 0) {
       axios
-        .get(`http://localhost:4001/${cat}/${price}`)
+        .get(`${backendSite}/${cat}/${price}`)
         .then((res) => {
           setData1(res.data);
           console.log(res.data);
@@ -50,7 +51,7 @@ const CerealProductPage = () => {
         .catch((err) => console.log(err));
     } else {
       axios
-        .get(`http://localhost:4001/${cat}`)
+        .get(`${backendSite}/${cat}`)
         .then((res) => setData1(res.data))
         .catch((err) => console.log(err));
     }

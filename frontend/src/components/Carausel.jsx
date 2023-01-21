@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { backendSite } from "./backendSiteLink/backendSite";
 
     const Carausel =({url ,typeC})=>{
 const [data,setData] = useState("")
@@ -19,7 +20,7 @@ console.log(id,typeofC)
 
 
 const Getdata=()=>{
-    axios.get(`http://localhost:4001/${url}`)
+    axios.get(`${backendSite}/${url}`)
     .then((res)=>setData(res.data))
     .catch((err)=>{
         console.log(err)

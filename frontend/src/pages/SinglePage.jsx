@@ -18,7 +18,7 @@ import { backendSite } from "../components/backendSiteLink/backendSite";
 let token = localStorage.getItem("Token")
 
 const postCart = async(data)=>{
-  const res = await axios.post("http://localhost:4001/cart",data,{
+  const res = await axios.post(`${backendSite}/cart`,data,{
     headers : {
       "Content-Type" : "application/json",
       "Authorization" : token

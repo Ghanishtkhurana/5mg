@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, logout } from "./auth.type"
+import { LOGIN, LOGOUT} from "./auth.type"
 
 let token = localStorage.getItem("Token")
 console.log("Token=>",token);

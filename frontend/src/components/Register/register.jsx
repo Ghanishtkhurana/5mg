@@ -14,6 +14,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import React from "react";
 import { PasswordInput } from "../login/PasswordInput";
+import { backendSite } from "../backendSiteLink/backendSite";
 
 const Register = () => {
   const Navigate = useNavigate();
@@ -26,7 +27,7 @@ const Register = () => {
   const handleClick = () => {
     if (name && email && password) {
       axios
-        .post(`http://localhost:4001/users/register`, {
+        .post(`${backendSite}/users/register`, {
           name: name,
           email: email,
           password: password,

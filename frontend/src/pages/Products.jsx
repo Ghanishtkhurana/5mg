@@ -13,6 +13,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { FiSliders } from "react-icons/fi";
+import { backendSite } from "../components/backendSiteLink/backendSite";
 
 const Products = () => {
   const [isLargerThan1280] = useMediaQuery("(min-width: 1080px)");
@@ -23,12 +24,12 @@ const Products = () => {
   useEffect(() => {
     if (cat.length === 0) {
       axios
-        .get("http://localhost:4001/cereal")
+        .get(`${backendSite}/cereal`)
         .then((res) => setData1(res.data))
         .catch((err) => console.log(err));
     } else if (cat.length > 0 && price.length > 0) {
       axios
-        .get(`http://localhost:4001/${cat}/${price}`)
+        .get(`${backendSite}/${cat}/${price}`)
         .then((res) => {
           setData1(res.data);
           console.log(res.data);
@@ -36,7 +37,7 @@ const Products = () => {
         .catch((err) => console.log(err));
     } else {
       axios
-        .get(`http://localhost:4001/${cat}`)
+        .get(`${backendSite}/${cat}`)
         .then((res) => setData1(res.data))
         .catch((err) => console.log(err));
     }

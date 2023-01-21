@@ -4,6 +4,7 @@ import doctor from "../Photo/doctor.png"
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import {backendSite} from "../components/backendSiteLink/backendSite"
 
 export const Fullcarauseldet = () => {
     const {typeofC,id} = useParams()
@@ -11,7 +12,7 @@ export const Fullcarauseldet = () => {
 const [data,setData] = useState("")
 
 const Singleproduct=()=>{
-axios.get(`http://localhost:4001/${typeofC}/${id}`)
+axios.get(`${backendSite}/${typeofC}/${id}`)
 .then((res)=>setData(res.data))
 .catch((err)=>console.log(err))
 }

@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { Carausel } from '../components/Carausel'
 import { Box, Button, Image, SimpleGrid, Text } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
+import {backendSite} from "../components/backendSiteLink/backendSite"
 
 export const Ayurved = () => {
 const [data,setData] = useState("")
@@ -18,7 +19,7 @@ navigate(`/ayurveda/${id}`)
 
 const Getdata =()=>{
 
-axios.get("http://localhost:4001/ayurveda")
+axios.get(`${backendSite}/ayurveda`)
 .then((res)=>{setData(res.data)})
 .catch((err)=>console.log(err))
 

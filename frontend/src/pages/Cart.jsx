@@ -4,11 +4,12 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {backendSite} from "../components/backendSiteLink/backendSite"
 
 let token = localStorage.getItem("Token");
 
 const getCart = async () => {
-  const res = await axios.get("http://localhost:4001/cart", {
+  const res = await axios.get(`${backendSite}/cart`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
@@ -19,7 +20,7 @@ const getCart = async () => {
 };
 
 const itemDelete = async (id) => {
-  const res = await axios.delete(`http://localhost:4001/cart/${id}`, {
+  const res = await axios.delete(`${backendSite}/cart/${id}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
@@ -31,7 +32,7 @@ const itemDelete = async (id) => {
 };
 
 const checkout = async (id) => {
-  const res = await axios.delete(`http://localhost:4001/cart/checkout/${id}`, {
+  const res = await axios.delete(`${backendSite}/cart/checkout/${id}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
