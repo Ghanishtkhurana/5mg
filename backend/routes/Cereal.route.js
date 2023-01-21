@@ -23,15 +23,19 @@ cerealRouter.get("/",async(req,res)=>{
      res.send("Something Went Wrong")
   }
 })
- cerealRouter.get("/low",async(req,res)=>{
-   try{
-      const cerealss= await CerealModel.find({price:{$lte:550}})
-      res.send(cerealss)
-   }catch(err){
-      console.log(err)
-      res.send("Something Went Wrong")
-   }
-})
+
+cerealRouter.get("/low",(req,res)=>{
+
+      try{
+         const cerealss= await CerealModel.find({price:{$gte:550}})
+         res.send(cerealss)
+      }catch(err){
+         console.log(err)
+         res.send("Something Went Wrong")
+      }
+
+res.send("hello")
+   })
  
 cerealRouter.get("/high",async(req,res)=>{
    try{

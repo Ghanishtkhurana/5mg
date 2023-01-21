@@ -37,8 +37,6 @@ app.use("/users", userrouter);
 // app.use(authantication);
 
 app.use("/fullBodyCheck", fullBodyCheckRouter);
-
-
 app.use("/fullBodyCheck",fullBodyCheckRouter)
 app.use("/comboDeals",comboDealsRouter)
 app.use("/trending",trendingRouter)
