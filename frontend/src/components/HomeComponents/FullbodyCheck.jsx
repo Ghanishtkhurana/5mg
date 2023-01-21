@@ -57,7 +57,7 @@ const FullbodyCheck = () => {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 760,
         settings: {
           slidesToShow: 5,
           slidesToScroll: 4,
@@ -99,32 +99,36 @@ const FullbodyCheck = () => {
     border:"0px",width:"60px"
     }}>See All</button>
     </div>
-    <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px",height:"150px"}}>
+    <div style={{boxShadow:"rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",height:"150px"}}>
     <Slider {...settings}>
   {
     data.map((item)=>(
-    <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="150px">
-    <Text w="120px" ml="12px" color="black" fontSize={10} h="40px">{item.title}</Text>
-<Text w="120px" ml="12px" color="black" fontSize={10}>{item.no_of_tests}</Text>
+    <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px" h="150px">
+
+    <Box h="35px" overflow="hidden">
+<Text ml="12px" color="black" mt="5px"
+width={{base:"100px",md:"120px",lg:"120px"}}
+ fontSize={{base:"7px",md:"8px",lg:"10px"}}
+>{item.title}</Text>
+</Box>
+{/* no_of_tests */}
+<Text w="120px" ml="12px" color="black" fontSize={8}
+width={{base:"100px",md:"120px",lg:"120px"}}
+>{item.no_of_tests}</Text>
+
     <Box  boxSize='120px' ml="35px" mt="5px">
     <Flex ml="-5px">
     <Image width="50px" mt="5px"
-//     width={{base:"60px",md:"80px",lg:"120px"}}
-// margin={{md:"auto"}}
      src={item.image} alt='Dan Abramov' />
      <p style={{color:"white",background:"green",fontSize:"10px",padding:"2px",height:"20px",
      marginTop:"15px"}}>{item.rating}✰</p> 
 <Text fontSize={10} ml="2px" mt="15px">ISO</Text>
     </Flex>
 </Box>
-<Text color="grey" ml="-25px" mt="-70px" fontSize={12}>MRP</Text>
-<Text color="black" ml="-25px" fontSize={12}>₹{item.price}</Text>
-{/* <Text color="grey" fontSize={10}
- marginLeft={{md:"10px",lg:"-25px" }}
->MRP</Text>
-<Text color="black" ml="-25px" fontSize={12}
- marginLeft={{md:"10px",lg:"-25px" }}
->₹{item.price}</Text> */}
+
+<Text color="grey" ml="-25px" mt="-70px" fontSize={10}>MRP</Text>
+<Text color="black" ml="-25px" fontSize={10}>₹{item.price}</Text>
+
     </Box>
     ))
   }

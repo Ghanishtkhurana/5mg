@@ -21,9 +21,8 @@ cerealRouter.get("/",async(req,res)=>{
       console.log(err)
       res.send("Something Went Wrong")
    }
-
-
 })
+
 
 cerealRouter.get("/high",async(req,res)=>{
    try{
