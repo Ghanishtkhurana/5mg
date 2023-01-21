@@ -34,13 +34,13 @@ Getdata()
 
 
 <Text  fontWeight={500} fontSize={{base : "15px",md:"20px",lg:"30px"}} >Featured Herbs</Text>
-<Carausel  url= "herbs"  />
+<Carausel  url= "herbs"  typeC={"herbs"}  />
 <Text  fontWeight={500} fontSize={{base : "15px",md:"20px",lg:"30px"}} >Skin Care</Text>
-<Carausel  url= "skin"  />
+<Carausel  url= "skin" typeC={"skin"} />
 <Text  fontWeight={500} fontSize={{base : "15px",md:"20px",lg:"30px"}} >Digestive Care</Text>
-<Carausel url="digest"   />
+<Carausel url="digest"  typeC={"digest"} />
 <Text  fontWeight={500} fontSize={{base : "15px",md:"20px",lg:"30px"}} >Hair Care</Text>
-<Carausel  url="hairs" />
+<Carausel  url="hairs"  typeC={"hairs"} />
 
 <Text  fontWeight={500} fontSize={{base : "13px",md:"20px",lg:"50px"}} >AYURVEDIC OSUDI</Text>
 

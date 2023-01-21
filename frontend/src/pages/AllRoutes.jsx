@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Covid } from "./covid_0381";
+
 import Home from "./Home";
 import Lab from "./Lab";
 import Products from "./Products";
@@ -15,11 +15,13 @@ import { Fullayurdes } from "../components/Fullayurdes";
 import Cart from "./Cart";
 import Register from "../components/Register/register";
 import Login from "../components/login/login";
+import { Fullcarauseldet } from "./fullcarauseldet";
+import { Covid } from "./covid";
 
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route path="/"element={<ChakraProvider><Home /></ChakraProvider>}/><Route
+      <Route path="/"element={<ChakraProvider>  <Home /></ChakraProvider>}/><Route
         path="/lab"element={<ChakraProvider> <Lab /></ChakraProvider>}/>
         <Route path="/singleproduct/:id" element={<ChakraProvider><SinglePage /></ChakraProvider>} />
       <Route path="/products" element={<ChakraProvider><Products /></ChakraProvider>} />
@@ -27,12 +29,13 @@ const AllRoutes = () => {
       <Route path="/combodealspage" element={<ChakraProvider><ComboDealsProductPage /></ChakraProvider>} />
       <Route path="/plantbasedproductspage" element={<ChakraProvider><PlantBasedProductPage/></ChakraProvider>} />
       <Route path="/trendingproductpage" element={<ChakraProvider><TrendingProductPage /></ChakraProvider>} />
-      <Route path="/covid" element={  <Covid />   } />
       <Route path="/ayurved" element={ <ChakraProvider> <Ayurved/> </ChakraProvider>  }   />
       <Route path="ayurveda/:id" element={<ChakraProvider><Fullayurdes/></ChakraProvider>} />
       <Route path="/cart" element={<ChakraProvider><Cart /></ChakraProvider>} />
       <Route path="/signup" element={<ChakraProvider><Register /></ChakraProvider>} />
       <Route path="/login" element={<ChakraProvider><Login /></ChakraProvider>} />
+      <Route path="/carausel/:typeofC/:id" element={<ChakraProvider>  <Fullcarauseldet/>  </ChakraProvider>} />
+    <Route path="/covid"  element={<ChakraProvider> <Covid/></ChakraProvider>} />
     </Routes>
   );
 };

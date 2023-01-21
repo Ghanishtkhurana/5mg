@@ -4,9 +4,18 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
-    const Carausel =({url})=>{
+    const Carausel =({url ,typeC})=>{
 const [data,setData] = useState("")
+const navigate = useNavigate()
+
+const GetID =(id, typeofC)=>{
+  navigate(`/carausel/${typeofC}/${id}`)
+
+console.log(id,typeofC)
+}
+
 
 
 const Getdata=()=>{
@@ -63,9 +72,9 @@ useEffect(()=>{
               
                   {
                     data.length >0 && data.map((item)=>{
-                        return <Box key={item._id} >
+                        return <Box key={item._id}  >
 
-                            <Box  style={{border:"1px solid transparent",borderRadius:"10px"  , width:"90%" ,height:"300px", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" ,textAlign:"center", marginTop:"70px" }}>
+                            <Box  onClick={()=>GetID(item._id ,typeC )}   style={{border:"1px solid transparent",borderRadius:"10px"  , width:"90%" ,height:"300px", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" ,textAlign:"center", marginTop:"70px" }}>
                             <img  src={item.herbImage} style={{width:"100%"}}   />
                             <h4  >{item.name}</h4>
                             <p>{item.smalldes}</p>
