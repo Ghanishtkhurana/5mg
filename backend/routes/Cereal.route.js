@@ -24,7 +24,7 @@ cerealRouter.get("/",async(req,res)=>{
   }
 })
 
-cerealRouter.get("/low",(req,res)=>{
+cerealRouter.get("/low",async(req,res)=>{
 
       try{
          const cerealss= await CerealModel.find({price:{$gte:550}})
