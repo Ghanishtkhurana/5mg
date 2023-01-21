@@ -77,7 +77,6 @@ const settings = {
         axios.get(`${backendSite}/trending`)
           .then((res)=> {
             setData(res.data)
-        console.log("trendingDealsData:",res.data);
      })
         .catch(function (error) {
          console.log(error);

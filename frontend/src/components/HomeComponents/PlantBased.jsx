@@ -79,7 +79,6 @@ const PlantBased = () => {
         axios.get(`${backendSite}/plant`)
           .then((res)=> {
             setData(res.data)
-        console.log("plantsBasedData:",res.data);
      })
         .catch(function (error) {
          console.log(error);

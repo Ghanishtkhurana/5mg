@@ -86,7 +86,7 @@ const Cart = () => {
               }
            
           </Center>
-          {data.map((prod) => (
+          {data && data.map((prod) => (
             <Box borderBottom={"1px"} borderColor={"gray.300"}>
               <Flex justifyContent={"space-between"} pr={"20px"}>
                 <Box p={2} width={"200px"}>

@@ -86,8 +86,8 @@ const Navbar = () => {
 
   useEffect(() => {
     if (token) {
-      navigate("/");
-      alert("login success");
+      // navigate("/");
+      // alert("login success");
     }
   }, [token]);
 

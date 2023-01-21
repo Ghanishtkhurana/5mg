@@ -80,7 +80,6 @@ const ComboDeals = () => {
         axios.get(`${backendSite}/comboDeals`)
           .then((res)=> {
             setData(res.data)
-        console.log("combodealsData:",res.data);
      })
         .catch(function (error) {
          console.log(error);

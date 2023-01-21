@@ -76,18 +76,17 @@ const Cereals = () => {
   };
 
 
-    const getComboDealsData=()=>{
+    const getCerealData=()=>{
         axios.get(`${backendSite}/cereal`)
           .then((res)=> {
             setData(res.data)
-        console.log("combodealsData:",res.data);
      })
         .catch(function (error) {
          console.log(error);
      })
     }
     useEffect(()=>{
-        getComboDealsData()
+      getCerealData()
     },[])
     const route= "cereal"
   return (
@@ -95,7 +94,7 @@ const Cereals = () => {
 
 <div style={{display:"flex",justifyContent:"space-between"}}>
     <h1 style={{margin:"15px"}}>Cereals</h1>
-    <Link to="/combodealspage">
+    <Link to="/cerealproductspage">
     <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",
     border:"0px",margin:"15px",width:"65px"
   }}>See All</button>
