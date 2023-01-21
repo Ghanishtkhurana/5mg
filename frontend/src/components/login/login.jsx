@@ -13,6 +13,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import React from "react";
+import AlertComp from "../AlertComp";
+import { useSelector } from "react-redux";
 
 const Login = () => {
   const Navigate = useNavigate();
@@ -20,6 +22,8 @@ const Login = () => {
   const [isError, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { isAuth, token } = useSelector((store) => store.auth);
+  console.log(isAuth, token);
 
   const handleClick = () => {
     if (email && password) {
@@ -93,7 +97,7 @@ const Login = () => {
             <Box>Don't Have an Account?</Box>
             <Link to="/signup">
               <Box
-                w="23%"
+              w={"100px"}
                 margin="auto"
                 backgroundColor="#ff6f61"
                 padding="4px"

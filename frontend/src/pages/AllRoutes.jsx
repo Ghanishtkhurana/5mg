@@ -13,6 +13,8 @@ import TrendingProductPage from "../components/Productpages/trendingProductPage"
 import { Ayurved } from "./Ayurved_0381";
 import { Fullayurdes } from "../components/Fullayurdes";
 import Cart from "./Cart";
+import Register from "../components/Register/register";
+import Login from "../components/login/login";
 
 const AllRoutes = () => {
   return (
@@ -29,6 +31,8 @@ const AllRoutes = () => {
       <Route path="/ayurved" element={ <ChakraProvider> <Ayurved/> </ChakraProvider>  }   />
       <Route path="ayurveda/:id" element={<ChakraProvider><Fullayurdes/></ChakraProvider>} />
       <Route path="/cart" element={<ChakraProvider><Cart /></ChakraProvider>} />
+      <Route path="/signup" element={<ChakraProvider><Register /></ChakraProvider>} />
+      <Route path="/login" element={<ChakraProvider><Login /></ChakraProvider>} />
     </Routes>
   );
 };

@@ -1,13 +1,12 @@
-import React from 'react'
-import axios from "axios"
-import {backendSite} from "../backendSiteLink/backendSite"
-import { useEffect } from 'react'
+import React from "react";
+import axios from "axios";
+import { backendSite } from "../backendSiteLink/backendSite";
+import { useEffect } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Box,Image,Text } from '@chakra-ui/react'
-import {Link} from "react-router-dom"
-
+import { Box, Image, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -15,8 +14,15 @@ function SampleNextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, background: "grey",marginRight:"25px",borderRadius:"50px",
-      paddingTop:"12px",width:"40px",height:"40px"}}
+      style={{
+        ...style,
+        background: "grey",
+        marginRight: "25px",
+        borderRadius: "50px",
+        paddingTop: "12px",
+        width: "40px",
+        height: "40px",
+      }}
       onClick={onClick}
     />
   );
@@ -27,15 +33,23 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "grey",marginLeft:"25px",borderRadius:"50px",
-      paddingTop:"12px",width:"40px",height:"40px"}}
+      style={{
+        ...style,
+        display: "block",
+        background: "grey",
+        marginLeft: "25px",
+        borderRadius: "50px",
+        paddingTop: "12px",
+        width: "40px",
+        height: "40px",
+      }}
       onClick={onClick}
     />
   );
 }
 
 const Cereals = () => {
-  const [data,setData]=React.useState([])
+  const [data, setData] = React.useState([]);
 
   const settings = {
     dots: false,
@@ -52,86 +66,120 @@ const Cereals = () => {
           slidesToShow: 7,
           slidesToScroll: 6,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 720,
         settings: {
           slidesToShow: 5,
           slidesToScroll: 4,
-          initialSlide: 2
-        }
+          initialSlide: 2,
+        },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 2
-        }
-      }
-    ]
+          slidesToScroll: 2,
+        },
+      },
+    ],
   };
 
-
-
-    const cerealsData=()=>{
-        axios.get(`${backendSite}/cereal`)
-          .then((res)=> {
-            setData(res.data)
-        console.log("cerealsData:",res.data);
-     })
-        .catch(function (error) {
-         console.log(error);
-     })
-    }
-    useEffect(()=>{
-        cerealsData()
-    },[])
- const route="cereal"
+  const cerealsData = () => {
+    axios
+      .get(`${backendSite}/cereal`)
+      .then((res) => {
+        setData(res.data);
+        console.log("cerealsData:", res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    cerealsData();
+  }, []);
+  const route = "cereal";
   return (
     <div>
-     <div style={{display:"flex",justifyContent:"space-between"}}>
-    <h1 style={{margin:"15px"}}>Breakfast cereals</h1>
-    <Link to="/cerealproductspage">
-    <button style={{height:"30px",marginTop:"30px",background:"#FF6F61",color:"white",borderRadius:"5px",margin:"15px",
-    border:"0px",width:"60px"
-  }}>See All</button>
-  </Link>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <h1 style={{ margin: "15px" }}>Breakfast cereals</h1>
+        <Link to="/cerealproductspage">
+          <button
+            style={{
+              height: "30px",
+              marginTop: "30px",
+              background: "#FF6F61",
+              color: "white",
+              borderRadius: "5px",
+              margin: "15px",
+              border: "0px",
+              width: "60px",
+            }}
+          >
+            See All
+          </button>
+        </Link>
+      </div>
+      <div
+        style={{
+          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+          height: "250px",
+        }}
+      >
+        <Slider {...settings}>
+          {data.map((item) => (
+            <Link to={`/singleproduct/${item._id}`}>
+              <Box
+                key={item._id}
+                boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px"
+                h="250px"
+                onClick={() => localStorage.setItem("route", route)}
+              >
+                <Box boxSize="120px" ml="35px" mt="5px">
+                  <Image
+                    width={{ base: "60px", md: "80px", lg: "80px" }}
+                    height={{ base: "60px", md: "80px", lg: "120px" }}
+                    margin={{ md: "auto" }}
+                    src={item.image}
+                    alt="Dan Abramov"
+                  />
+                </Box>
+
+                <Text
+                  ml="12px"
+                  color="black"
+                  mt="5px"
+                  width={{ base: "100px", md: "120px", lg: "120px" }}
+                  fontSize={{ base: "10px", md: "10px", lg: "12px" }}
+                >
+                  {item.title}
+                </Text>
+
+                <Text
+                  color="grey"
+                  fontSize={10}
+                  marginLeft={{ md: "10px", lg: "-25px" }}
+                >
+                  MRP
+                </Text>
+                <Text
+                  color="black"
+                  ml="-25px"
+                  fontSize={12}
+                  marginLeft={{ md: "10px", lg: "-25px" }}
+                >
+                  ₹{item.price}
+                </Text>
+              </Box>
+            </Link>
+          ))}
+        </Slider>
+      </div>
     </div>
-    <div style={{boxShadow:"rgba(0, 0, 0, 0.35) 0px 5px 15px",height:"250px"}}>
-      <Slider {...settings}>
-    {
-      data.map((item)=>(
-        <Link to={`/singleproduct/${item._id}`}>
-      <Box key={item._id} boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px" h="250px" onClick={()=>localStorage.setItem("route",route)}>
-      <Box  boxSize='120px' ml="35px" mt="5px">
-  <Image 
-  width={{base:"60px",md:"80px",lg:"80px"}}
-  height={{base:"60px",md:"80px",lg:"120px"}}
-margin={{md:"auto"}}
-  src={item.image} alt='Dan Abramov' />
-</Box>
+  );
+};
 
-<Text ml="12px" color="black" mt="5px"
-width={{base:"100px",md:"120px",lg:"120px"}}
- fontSize={{base:"10px",md:"10px",lg:"12px"}}
->{item.title}</Text>
-
-<Text color="grey" fontSize={10}
- marginLeft={{md:"10px",lg:"-25px" }}
->MRP</Text>
-<Text color="black" ml="-25px" fontSize={12}
- marginLeft={{md:"10px",lg:"-25px" }}
->₹{item.price}</Text>
-
-      </Box></Link>
-      ))
-    }
-</Slider>
-   </div>
-    </div>
-  )
-}
-
-export default Cereals
+export default Cereals;

@@ -13,6 +13,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import React from "react";
+import AlertComp from "../AlertComp";
 
 const Register = () => {
   const Navigate = useNavigate();
@@ -33,7 +34,8 @@ const Register = () => {
         .then((res) => {
           console.log(res);
           // console.log(res.data.token);
-          alert(res.data.msg);
+          // alert(res.data.msg);
+          <AlertComp text={res.data.msg} />
           Navigate("/login");
         })
         .catch((err) => {
