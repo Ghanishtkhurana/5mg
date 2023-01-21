@@ -13,6 +13,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import React from "react";
+import AlertComp from "../AlertComp";
 
 const Register = () => {
   const Navigate = useNavigate();
@@ -25,21 +26,17 @@ const Register = () => {
   const handleClick = () => {
     if (name && email && password) {
       axios
-        .post(`http://localhost:8080/users/register`, {
+        .post(`http://localhost:4001/users/register`, {
           name: name,
           email: email,
           password: password,
         })
         .then((res) => {
+          console.log(res);
           // console.log(res.data.token);
-
-          alert("Registerd Successful");
-          if (res.data.token) {
-            localStorage.setItem("Token", res.data.token);
-            Navigate("/");
-          } else {
-            Navigate("/login");
-          }
+          // alert(res.data.msg);
+          <AlertComp text={res.data.msg} />
+          Navigate("/login");
         })
         .catch((err) => {
           setIsLoading(false);
@@ -49,84 +46,92 @@ const Register = () => {
       alert("Please Fill The Required Fields");
     }
   };
+
   return (
     <div>
-      <Box borderBottomWidth="1px" w="100%">
-        <Box p="4" w="100%">
-          <Image src="https://tse1.mm.bing.net/th?id=OIP.f6RJ4sSX4IrWiP2MfgmbGwAAAA&pid=Api&P=0" />
+      <Box w="20%" m="auto">
+        <Box borderBottomWidth="1px" w="100%">
+          <Box
+            p="4"
+            w="100%"
+            display="flex"
+            justifyContent="center"
+            alignContent="center"
+          >
+            <Image
+              w="100%"
+              src="https://tse1.mm.bing.net/th?id=OIP.f6RJ4sSX4IrWiP2MfgmbGwAAAA&pid=Api&P=0"
+            />
+          </Box>
         </Box>
-      </Box>
-      <Stack spacing="24px">
-        <Box>
-          <FormLabel htmlFor="username"> Name</FormLabel>
-          <Input
-            id="username"
-            placeholder="Enter your Name"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </Box>
-        <Box>
-          <FormLabel htmlFor="username">Email</FormLabel>
-          <Input
-            id="username"
-            placeholder="Enter your email id"
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Box>
-        <Box>
-          <FormLabel htmlFor="username">Password</FormLabel>
-          <Input
-            id="username"
-            placeholder="Enter your password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Box>
+        <Stack spacing="24px" mt="10px">
+          <Box w="100%">
+            <FormLabel htmlFor="username"> Name</FormLabel>
+            <Input
+              w="100%"
+              placeholder="Enter your Name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </Box>
+          <Box w="100%">
+            <FormLabel htmlFor="username">Email</FormLabel>
+            <Input
+              w="100%"
+              placeholder="Enter your email id"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Box>
+          <Box w="100%">
+            <FormLabel htmlFor="username">Password</FormLabel>
+            <Input
+              w="100%"
+              placeholder="Enter your password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Box>
 
-        <Box>
-          <Button bg="#ff6f61" w="100%" onClick={handleClick} mt="20px">
-            Submit{" "}
-            {isLoading && (
-              <div>
-                <Spinner color="red.500" />
-              </div>
-            )}
-          </Button>
-          <Box>Have an account? </Box>
-          <Link to="/login">
-            <Badge
-              display="inline"
-              variant="subtle"
-              textTransform="lowercase"
-              colorScheme="blue"
-              fontSize="1.1em"
-            >
-              Login
-            </Badge>
-          </Link>
-        </Box>
-        <Box>
-          <Text fontSize="xs">
-            By signing up, you agree to our
-            <a color="#0f847d" href="https://www.1mg.com/privacypolicy">
-              {" "}
-              <Badge
-                display="inline"
-                variant="subtle"
-                textTransform="lowercase"
-                colorScheme="green"
+          <Box>
+            <Button bg="#ff6f61" w="100%" onClick={handleClick} mt="20px">
+              Submit{" "}
+              {isLoading && (
+                <div>
+                  <Spinner color="red.500" />
+                </div>
+              )}
+            </Button>
+            <Box>Have an account? </Box>
+            <Link to="/login">
+              <Box
+                w="23%"
+                margin="auto"
+                backgroundColor="#ff6f61"
+                padding="4px"
+                mt="10px"
+                borderRadius="5px"
               >
-                Privacy Policy
-              </Badge>
-            </a>
-          </Text>
-        </Box>
-      </Stack>
+                Login
+              </Box>
+            </Link>
+          </Box>
+          <Box>
+            <Text fontSize="xs">
+              By signing up, you agree to our
+              <a color="#0f847d" href="https://www.1mg.com/privacypolicy">
+                {" "}
+                <Box w="100%" margin="auto" padding="4px" color="red">
+                  Privacy Policy
+                </Box>
+              </a>
+            </Text>
+          </Box>
+        </Stack>
+      </Box>
     </div>
   );
 };

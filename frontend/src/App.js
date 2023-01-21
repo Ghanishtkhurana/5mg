@@ -6,18 +6,17 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 
 
-
 function App() {
   return (
     <div className="App">
       <ChakraProvider>
-      <Navbar />
+        <Navbar />
       </ChakraProvider>
 
       <AllRoutes />
 
       <ChakraProvider>
-      <Footer />
+        <Footer />
       </ChakraProvider>
 
     </div>

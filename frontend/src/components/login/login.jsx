@@ -13,6 +13,9 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import React from "react";
+import AlertComp from "../AlertComp";
+import { useSelector } from "react-redux";
+import { PasswordInput } from "./PasswordInput";
 
 const Login = () => {
   const Navigate = useNavigate();
@@ -20,16 +23,21 @@ const Login = () => {
   const [isError, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { isAuth, token } = useSelector((store) => store.auth);
+  console.log(isAuth, token);
+
   const handleClick = () => {
     if (email && password) {
       axios
-        .post(`http://localhost:8080/users/login`, {
+        .post(`http://localhost:4001/users/login`, {
           email: email,
           password: password,
         })
         .then((res) => {
-          // console.log(res.data.token);
+          console.log(res);
+
           alert(res.data.msg);
+
           if (res.data.token) {
             localStorage.setItem("Token", res.data.token);
             Navigate("/");
@@ -47,72 +55,65 @@ const Login = () => {
   };
   return (
     <div>
-      <Box borderBottomWidth="1px" w="100%">
-        <Box p="4" w="100%">
-          <Image src="https://tse1.mm.bing.net/th?id=OIP.f6RJ4sSX4IrWiP2MfgmbGwAAAA&pid=Api&P=0" />
+      <Box w="20%" m="auto">
+        <Box borderBottomWidth="1px" w="100%">
+          <Box p="4" w="100%">
+            <Image
+              w="100%"
+              src="https://tse1.mm.bing.net/th?id=OIP.f6RJ4sSX4IrWiP2MfgmbGwAAAA&pid=Api&P=0"
+            />
+          </Box>
         </Box>
-      </Box>
-      <Stack spacing="24px">
-        <Box>
-          <FormLabel htmlFor="username">Email</FormLabel>
-          <Input
-            id="form"
-            placeholder="Enter your email id"
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Box>
-        <Box>
-          <FormLabel htmlFor="username">Password</FormLabel>
-          <Input
-            id="username"
-            placeholder="Enter your password"
-            type="text"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Box>
+        <Stack spacing="24px" mt="10px">
+          <Box w="100%">
+            <FormLabel htmlFor="username">Email</FormLabel>
+            <Input
+              w="100%"
+              placeholder="Enter your email id"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Box>
+          <Box w="100%">
+            <FormLabel htmlFor="username">Password</FormLabel>
+            <PasswordInput password={password} setPassword={setPassword} />
+          </Box>
 
-        <Box>
-          <Button bg="#ff6f61" w="100%" onClick={handleClick} mt="20px">
-            Submit{" "}
-            {isLoading && (
-              <div>
-                <Spinner color="red.500" />
-              </div>
-            )}
-          </Button>
-          <Box>Don't Have an Account?</Box>
-          <Link to="/signup">
-            <Badge
-              display="inline"
-              variant="subtle"
-              textTransform="lowercase"
-              colorScheme="blue"
-              fontSize="1.1em"
-            >
-              Register
-            </Badge>
-          </Link>
-        </Box>
-        <Box>
-          <Text fontSize="xs">
-            By clickng, you agree with our{" "}
-            <a color="#0f847d" href="https://www.1mg.com/privacypolicy">
-              {" "}
-              <Badge
-                display="inline"
-                variant="subtle"
-                textTransform="lowercase"
-                colorScheme="green"
+          <Box>
+            <Button bg="#ff6f61" w="100%" onClick={handleClick} mt="20px">
+              Submit{" "}
+              {isLoading && (
+                <div>
+                  <Spinner color="red.500" />
+                </div>
+              )}
+            </Button>
+            <Box>Don't Have an Account?</Box>
+            <Link to="/signup">
+              <Box
+                w={"100px"}
+                margin="auto"
+                backgroundColor="#ff6f61"
+                padding="4px"
+                mt="10px"
+                borderRadius="5px"
               >
-                Privacy Policy
-              </Badge>
-            </a>
-          </Text>
-        </Box>
-      </Stack>
+                Register
+              </Box>
+            </Link>
+          </Box>
+          <Box>
+            <Text fontSize="xs">
+              By clickng, you agree with our{" "}
+              <a color="#0f847d" href="https://www.1mg.com/privacypolicy">
+                {" "}
+                <Box color="red">Privacy Policy</Box>
+              </a>
+            </Text>
+          </Box>
+        </Stack>
+      </Box>
     </div>
   );
 };

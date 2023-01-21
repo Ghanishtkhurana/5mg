@@ -14,7 +14,7 @@ import {
   DrawerBody,
   useDisclosure,
 } from "@chakra-ui/react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MdAddShoppingCart } from "react-icons/md";
 import { BsList } from "react-icons/bs";
 import { TbTestPipe } from "react-icons/tb";
@@ -24,34 +24,36 @@ import { TbPlant2 } from "react-icons/tb";
 import { RiHandHeartLine } from "react-icons/ri";
 
 import React from "react";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const Sec = [
   {
-    id:1,
+    id: 1,
     txt: "LAB TESTS",
     links: "/lab",
     icon: TbTestPipe,
   },
   {
-    id:2,
+    id: 2,
     txt: "CONSULT DOCTORS",
     links: "",
     icon: TbFirstAidKit,
   },
   {
-    id:3,
+    id: 3,
     txt: "COVID-19",
     links: "/covid",
     icon: RiVirusLine,
   },
   {
-    id:4,
+    id: 4,
     txt: "AYURVEDA",
     links: "/ayurved",
     icon: TbPlant2,
   },
   {
-    id:5,
+    id: 5,
     txt: "CARE PLAN",
     links: "",
     icon: RiHandHeartLine,
@@ -60,12 +62,12 @@ const Sec = [
 
 const Third = [
   {
-    id:1,
+    id: 1,
     txt: "Login",
-    link: "",
+    link: "/login",
   },
   {
-    id:2,
+    id: 2,
     txt: "Sign Up",
     link: "",
   },
@@ -75,6 +77,23 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   const [isLargerThan1280] = useMediaQuery("(min-width: 1100px)");
+  const { isAuth, token } = useSelector((store) => store.auth);
+  const navigate = useNavigate();
+  console.log("toki", token);
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+      alert("login success");
+    }
+  }, [token]);
+
+  const logout = () => {
+    localStorage.removeItem("Token");
+    alert("logout Success");
+    navigate("/login");
+  };
+
   return (
     <Box borderBottom={"1px"} borderColor={"gray.200"} p={2}>
       {isLargerThan1280 ? (
@@ -116,7 +135,7 @@ const Navbar = () => {
           </Flex>
           {/* Second half  */}
           <Flex>
-            {Third.map((post, i) => (
+            {/* {Third.map((post, i) => (
               <Button
                 key={post.id}
                 m={1}
@@ -130,12 +149,35 @@ const Navbar = () => {
                   </Text>
                 </Flex>
               </Button>
-            ))}
+            ))} */}
+            <Button m={1} size="sm" _hover={{}} bgColor={"rgb(255,111,97)"}>
+              <Flex>
+                <Text color={"white"} fontSize={"13px"}>
+                  {token && <Text onClick={() => logout()}>Logout</Text>}
+                  {token == false && (
+                    <Text onClick={() => navigate("/login")}>login</Text>
+                  )}
+                </Text>
+              </Flex>
+            </Button>
+            <Button
+              onClick={() => navigate("/signup")}
+              m={1}
+              size="sm"
+              _hover={{}}
+              bgColor={"rgb(255,111,97)"}
+            >
+              <Flex>
+                <Text color={"white"} fontSize={"13px"}>
+                  Sign Up
+                </Text>
+              </Flex>
+            </Button>
 
             <Button m={1} size="sm" _hover={{}} bgColor={"rgb(255,111,97)"}>
               <Flex>
                 <Link to="/cart">
-                <Icon as={MdAddShoppingCart} w={5} color={"white"} h={5} />
+                  <Icon as={MdAddShoppingCart} w={5} color={"white"} h={5} />
                 </Link>
                 <Text color={"white"} fontSize={"13px"}>
                   {/* count  */}
@@ -155,7 +197,8 @@ const Navbar = () => {
               <Box m={1}>
                 <Image
                   src="https://i.postimg.cc/B696yn9C/5mglogo-removebg-preview.png"
-                  width={"100px"} height={"100px"}
+                  width={"100px"}
+                  height={"100px"}
                 />
               </Box>
             </Flex>
@@ -163,7 +206,7 @@ const Navbar = () => {
               <Button m={1} size="sm" _hover={{}} bgColor={"rgb(255,111,97)"}>
                 <Flex>
                   <Link to="/cart">
-                  <Icon as={MdAddShoppingCart} w={5} color={"white"} h={5} />
+                    <Icon as={MdAddShoppingCart} w={5} color={"white"} h={5} />
                   </Link>
                   <Text color={"white"} fontSize={"13px"}>
                     {/* count  */}
@@ -235,9 +278,9 @@ const Navbar = () => {
                           _hover={{}}
                           bgColor={"rgb(255,111,97)"}
                         >
-                            <Text color={"white"} fontSize={"13px"}>
-                              {post.txt}
-                            </Text>
+                          <Text color={"white"} fontSize={"13px"}>
+                            {post.txt}
+                          </Text>
                         </Button>
                       ))}
                     </Flex>
