@@ -15,6 +15,18 @@ import { BsStarFill } from "react-icons/bs";
 import { FiSliders } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
+let token = localStorage.getItem("Token")
+
+const postCart = async(data)=>{
+  const res = await axios.post("http://localhost:4001/cart",data,{
+    headers : {
+      "Content-Type" : "application/json",
+      "Authorization" : token
+    }
+  })
+  console.log(res.data)
+}
+
 const TrendingProductPage = () => {
 
   const [isLargerThan1280] = useMediaQuery("(min-width: 1080px)");
@@ -48,6 +60,11 @@ const TrendingProductPage = () => {
     setCat(value);
   };
   console.log(data1);
+
+  const handleTheCart = (post)=>{
+    postCart(post)
+    alert("item is add in your cart")
+  }
 
   const handlesort = (e) => {
     setPrice(e.target.value);
@@ -186,7 +203,7 @@ const TrendingProductPage = () => {
                               ₹ {post.price}
                             </Text>
                           </Box>
-                          <Button bg={"none"}>
+                          <Button onClick={()=>handleTheCart(post)} bg={"none"}>
                             <Text color={"rgb(255,111,97)"} fontWeight={500}>
                               ADD
                             </Text>
@@ -291,6 +308,7 @@ const TrendingProductPage = () => {
                           color={"rgb(255,111,97)"}
                           bg={"none"}
                           border={"1px"}
+                          onClick={()=>handleTheCart(post)}
                         >
                           <Text color={"rgb(255,111,97)"} fontWeight={500}>
                             Add to cart

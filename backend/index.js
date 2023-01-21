@@ -14,6 +14,7 @@ const {SkinRoute} =require("./routes/Skin.routes")
 const {DigestRoute} =require("./routes/Digestivecare.routes")
 const {HairRoute} =require("./routes/Hair.routes")
 const {HerbsRoute} =require("./routes/Herbs.routes")
+const cartRouter = require("./routes/cart.route")
 
 require('dotenv').config()
 
@@ -23,28 +24,30 @@ app.use(
   cors({
     origin: "*",
   })
-);
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("Home Page");
-});
-
-
-
-
-app.use("/users", userrouter);
-// app.use(authantication);
-
-app.use("/fullBodyCheck", fullBodyCheckRouter);
-
-
-app.use("/fullBodyCheck",fullBodyCheckRouter)
-app.use("/comboDeals",comboDealsRouter)
-app.use("/trending",trendingRouter)
-app.use("/cereal",cerealRouter)
-app.use("/plant",plantRouter)
-
+  );
+  app.use(express.json());
+  
+  app.get("/", (req, res) => {
+    res.send("Home Page");
+  });
+  
+  
+  
+  
+  app.use("/users", userrouter);
+  // app.use(authantication);
+  
+  app.use("/fullBodyCheck", fullBodyCheckRouter);
+  
+  
+  app.use("/fullBodyCheck",fullBodyCheckRouter)
+  app.use("/comboDeals",comboDealsRouter)
+  app.use("/trending",trendingRouter)
+  app.use("/cereal",cerealRouter)
+  app.use("/plant",plantRouter)
+  
+  // Cart 
+  app.use("/cart",cartRouter)
 
 // ayurveda page-----
 app.use("/herbs", HerbsRoute);

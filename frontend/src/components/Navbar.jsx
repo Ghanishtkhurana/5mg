@@ -82,10 +82,10 @@ const Navbar = () => {
   console.log("toki",token);
 
   useEffect(()=>{
-    if(token){
-      navigate("/")
-      alert("login success")
-    }
+    // if(token){
+    //   navigate("/")
+    //   alert("login success")
+    // }
   },[token])
 
   const logout = ()=>{
