@@ -75,16 +75,19 @@ All pages are responsive.
 
 ![Homepage ] ![landing_page](https://user-images.githubusercontent.com/105916064/213938491-d79b65a6-b0a2-4a2c-bb7d-db08ab181d91.png)
 
-### Sign up / Sign in Page -
+### Sign up Page -
 
 On this page, you can register a user. If the user is already registered, you can simply sign in by providing valid details of the user. 
 
-![signup](https://user-images.githubusercontent.com/105916064/213938619-f919b9d8-7e2a-4200-a341-6c1f1b12a7f0.png)
- ![Login](https://user-images.githubusercontent.com/105916064/213938646-2076d8f0-8dee-4d78-82de-dc2c20153ad9.png)
+![signup](https://user-images.githubusercontent.com/105916064/214049776-17fcbfcc-947e-46c9-b61a-22a84dcff769.png)
 
+###  Sign in Page - 
+
+On this page, you have to login with your registered email and password .you can simply sign in by providing valid details of the user. 
+
+![Login](https://user-images.githubusercontent.com/105916064/214049832-4efedc58-9bb6-4179-8ad0-b14f20869d26.png)
 
 ### Products Page -
-
 
 Here users can browse, `filter` the product based on `brand and discound`, `sort` by `price or rating`, filter and sort will work togather and add items to the cart by clicking on the `Add to Cart` button.
  
@@ -96,21 +99,21 @@ Here users can browse, `filter` the product based on `brand and discound`, `sort
 
 ### Cart Page -
 
-Here all the products added to the cart will be shown. On this page, you can `remove` the item from cart and also, `increase` or `decrease` count. By clicking on the `CHECKOUT` button you will be redirect to the checkout page.
+Here all the products added to the cart will be shown. On this page, By Clicking on add to cart your cart added successfully.
 
 ![cart](https://user-images.githubusercontent.com/105916064/213939230-fb8aa16b-b6e9-455b-8b14-d2c281a022ac.png)
 
-
 ### Order Summary Page -
 
+On this page, you can see your order details. you can `remove` the item from cart and also, `increase` or `decrease` count. By clicking on the payment button you will be redirect to the checkout page.
 
-
-
-
-### Payment Page -
+![cart](https://user-images.githubusercontent.com/105916064/214049958-760780f2-99eb-405e-9d11-faac14e08416.png)
 
 ### Footer Page -
 
+On This Page there is info about the site....
+
+![footer](https://user-images.githubusercontent.com/105916064/214050102-eb35d759-ec57-490d-b45c-5cef8cfe056e.png)
 
 
 ## Run Locally
