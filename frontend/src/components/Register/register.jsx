@@ -58,10 +58,7 @@ const Register = () => {
             justifyContent="center"
             alignContent="center"
           >
-            <Image
-              w="100%"
-              src="https://tse1.mm.bing.net/th?id=OIP.f6RJ4sSX4IrWiP2MfgmbGwAAAA&pid=Api&P=0"
-            />
+            <Image w="100%" src="/images/5mg.png" />
           </Box>
         </Box>
         <Stack spacing="24px" mt="10px">

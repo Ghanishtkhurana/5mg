@@ -59,10 +59,7 @@ const Login = () => {
       <Box w="20%" m="auto">
         <Box borderBottomWidth="1px" w="100%">
           <Box p="4" w="100%">
-            <Image
-              w="100%"
-              src="https://tse1.mm.bing.net/th?id=OIP.f6RJ4sSX4IrWiP2MfgmbGwAAAA&pid=Api&P=0"
-            />
+            <Image w="100%" src="/images/5mg.png" />
           </Box>
         </Box>
         <Stack spacing="24px" mt="10px">
