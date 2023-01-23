@@ -73,7 +73,7 @@ This is the main landing page of our website. Here, if you clicked on any naviga
 
 All pages are responsive.
 
-![Homepage ] ![landing_page](https://user-images.githubusercontent.com/105916064/213938491-d79b65a6-b0a2-4a2c-bb7d-db08ab181d91.png)
+![landing_page](https://user-images.githubusercontent.com/105916064/213938491-d79b65a6-b0a2-4a2c-bb7d-db08ab181d91.png)
 
 ### Sign up Page -
 
