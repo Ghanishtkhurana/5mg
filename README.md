@@ -45,13 +45,13 @@ Tata 1mg is India’s leading consumer health platform. It provides services, in
 -   Landing Page & Footer.
 -   Login and Signup Page with Express,mongodb,Nodejs & React.
 -   Product Filters Based on Brand and Discount
+-   Product Details in brief manner.
 -   Product Sorting Based on Price, Rating
 -   Product Filtering and Sorting works together
 -   Cart Add and Remove Items
 -   Cart Update Quantities
--   Address Management
 -   Order Summary
--   Instamojo Payment Gateway
+
 
 ## 🚀 Our Team Members:-
 
