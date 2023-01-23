@@ -34,7 +34,7 @@
   <img src="https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="vercel" />
 </p>
 
-<h3 align="center"><a href="https://5mg-vivek-bhatt05.vercel.app/"><strong>Want to see live preview »</strong></a></h3>
+<h3 align="center"><a href="https://frontend-meenakshi176.vercel.app/"><strong>Want to see live preview »</strong></a></h3>
 
 Tata 1mg is India’s leading consumer health platform. It provides services, including e-pharmacy, diagnostics, e-consultation and health content.
 
@@ -63,7 +63,7 @@ Tata 1mg is India’s leading consumer health platform. It provides services, in
 
 -   Suman Sourav [[LinkedIn Profile](https://www.linkedin.com/in/suman-saurav-06896b231/)] [[Github Profile](https://github.com/sumansauravmay/)]
 
--   Prateek Soni [[LinkedIn Profile]()] [[Github Profile]()]
+-   Prateek Soni [[LinkedIn Profile](https://www.linkedin.com/in/prateek-soni-b354b012a/)] [[Github Profile](https://github.com/PRATEEK9425/)]
 
 ## Screenshots
 
@@ -142,7 +142,7 @@ Install dependencies for frontend as well as backend
 Start the localhost server
 
 ```bash
-  cd ../frontend
+  cd frontend
   npm start
 ```
 
@@ -150,7 +150,7 @@ Start the localhost server
 
 ### Vercel Link
 
-[https://5mg-vivek-bhatt05.vercel.app/lab/](https://5mg-vivek-bhatt05.vercel.app/lab/)
+[https://frontend-meenakshi176.vercel.app/](https://frontend-meenakshi176.vercel.app/)
 
 ## Show your support
 
