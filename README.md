@@ -1,7 +1,11 @@
 # Project Title
 
 5 MG Healthcare & Product Website.
+## Deployed link
 
+### Vercel Link
+
+[https://frontend-meenakshi176.vercel.app/](https://frontend-meenakshi176.vercel.app/)
 ![Logo](https://i.postimg.cc/B696yn9C/5mglogo-removebg-preview.png)
 
 <h3 align="center">It's a Full Stack healthcare web application with all the major functionalities</h3>
@@ -149,11 +153,7 @@ Start the localhost server
   npm start
 ```
 
-## Deployed link
 
-### Vercel Link
-
-[https://frontend-meenakshi176.vercel.app/](https://frontend-meenakshi176.vercel.app/)
 
 ## Show your support
 
